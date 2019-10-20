@@ -7,13 +7,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class ItemEntity {
+public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String titulo;
     private String descricao;
-    private Endereco endereco;
 
     public Long getId() {
         return id;
@@ -39,17 +38,8 @@ public class ItemEntity {
         this.descricao = descricao;
     }
 
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
-    }
-
-    public ItemEntity(String titulo, String descricao, Endereco endereco) {
+    public Item(String titulo, String descricao) {
         this.titulo = titulo;
         this.descricao = descricao;
-        this.endereco = endereco;
     }
 }

@@ -5,7 +5,7 @@ package br.com.ifsp.ThanksGiven.models;
 import javax.persistence.*;
 
 @Entity
-public class UsuarioEntity {
+public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -45,7 +45,7 @@ public class UsuarioEntity {
         this.senha = senha;
     }
 
-    public UsuarioEntity(String nomeCompleto, String email, String senha) {
+    public Usuario(String nomeCompleto, String email, String senha) {
         this.nomeCompleto = nomeCompleto;
         this.email = email;
         this.senha = senha;
