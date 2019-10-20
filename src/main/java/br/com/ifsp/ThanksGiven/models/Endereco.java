@@ -1,6 +1,12 @@
-package br.com.ifsp.ThanksGiven.Entity;
+package br.com.ifsp.ThanksGiven.models;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 
 public class Endereco {
+    private Long id;
     private String rua;
     private String logradouro;
     private String cep;
