@@ -8,7 +8,9 @@ public class Doacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @OneToOne
     private Usuario doador;
+    @OneToOne
     private Usuario receptor;
     @OneToOne
     private Endereco endereco;
