@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<Pane fx:id="paneCadastro" prefHeight="400.0" prefWidth="600.0" style="-fx-border-color: white" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.CadastroController">
+  <children>
+    <ToolBar layoutX="0.0" layoutY="0.0" prefHeight="23.0" prefWidth="600.0" style="-fx-background-color: white;">
+      <items>
+        <Button fx:id="buttonCloseCadastroView" mnemonicParsing="false" onMouseClicked="#clickCloseCadastroPane" prefHeight="25.0" prefWidth="22.0" style="-fx-background-color: transparent;" text="X" translateX="565.0">
+          <textFill>
+            <Color blue="0.945" green="0.745" red="0.345" fx:id="x1" />
+          </textFill>
+        </Button>
+        <Button fx:id="buttonMinimizeCadastroView" mnemonicParsing="false" onMouseClicked="#clickMinimizeCadastroPane" prefHeight="25.0" prefWidth="22.0" style="-fx-background-color: transparent;&#10;" text="_" textFill="$x1" translateX="523.0" />
+      </items>
+    </ToolBar>
+    <Label layoutX="37.0" layoutY="18.0" prefHeight="71.9609375" prefWidth="313.0" text="Cadastro" textFill="#58bef1">
+      <font>
+        <Font name="Franklin Gothic Medium" size="36.0" />
+      </font>
+    </Label>
+    <Label layoutX="37.0" layoutY="107.0" prefHeight="25.0" prefWidth="62.0" text="Nome :">
+      <font>
+        <Font name="Franklin Gothic Medium" size="16.0" fx:id="x2" />
+      </font>
+    </Label>
+    <Label font="$x2" layoutX="37.0" layoutY="145.0" prefHeight="25.0" prefWidth="62.0" text="E-mail :" />
+    <Label font="$x2" layoutX="37.0" layoutY="180.0" prefHeight="25.0" prefWidth="62.0" text="CPF :" />
+    <Label font="$x2" layoutX="37.0" layoutY="251.0" prefHeight="25.0" prefWidth="62.0" text="Senha :" />
+    <TextField fx:id="TextFieldCadastroNome" layoutX="115.0" layoutY="108.0" prefWidth="450.0" style="-fx-border-color: #58bef1;" />
+    <TextField fx:id="TextFieldCadastroEmail" layoutX="115.0" layoutY="146.0" prefWidth="450.0" style="-fx-border-color: #58bef1;" />
+    <TextField fx:id="TextFieldCadastroCPF" layoutX="115.0" layoutY="180.0" prefWidth="450.0" style="-fx-border-color: #58bef1;" />
+    <TextField fx:id="TextFieldCadastroSenha" layoutX="115.0" layoutY="251.0" prefWidth="450.0" style="-fx-border-color: #58bef1;" />
+    <Button fx:id="buttonCadastrar" layoutX="232.0" layoutY="309.0" mnemonicParsing="false" onMouseClicked="#clickCadastrar" prefHeight="48.0" prefWidth="137.0" style="-fx-background-color: white; -fx-border-color: #58bef1;" text="Cadastrar" textFill="#2b799d">
+      <font>
+        <Font name="Franklin Gothic Medium" size="12.0" />
+      </font>
+    </Button>
+    <Label font="$x2" layoutX="37.0" layoutY="215.0" prefHeight="25.0" prefWidth="62.0" text="Login :" />
+    <TextField fx:id="TextFieldCadastroLogin" layoutX="115.0" layoutY="216.0" prefWidth="450.0" style="-fx-border-color: #58bef1;" />
+  </children>
+</Pane>

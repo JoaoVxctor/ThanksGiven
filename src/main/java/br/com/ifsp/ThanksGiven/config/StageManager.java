@@ -3,7 +3,7 @@ import static org.slf4j.LoggerFactory.getLogger;
 
 import java.util.Objects;
 
-import br.com.ifsp.ThanksGiven.view.FxmlView;
+import br.com.ifsp.ThanksGiven.View.*;
 import org.slf4j.Logger;
 
 
