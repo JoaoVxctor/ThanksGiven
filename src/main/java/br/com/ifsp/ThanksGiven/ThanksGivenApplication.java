@@ -1,13 +1,14 @@
 package br.com.ifsp.ThanksGiven;
 
 import br.com.ifsp.ThanksGiven.config.StageManager;
-import br.com.ifsp.ThanksGiven.view.FxmlView;
+import br.com.ifsp.ThanksGiven.View.FxmlView;
 import javafx.stage.Stage;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 import javafx.application.Application;
+import br.com.ifsp.ThanksGiven.Controller.*;
 
 @SpringBootApplication
 public class ThanksGivenApplication extends Application   {
@@ -35,6 +36,7 @@ public class ThanksGivenApplication extends Application   {
 		springContext.close();
 	}
 
+	
 
 	protected void displayInitialScene() {
 		stageManager.switchScene(FxmlView.LOGIN);
@@ -44,6 +46,11 @@ public class ThanksGivenApplication extends Application   {
 		SpringApplicationBuilder builder = new SpringApplicationBuilder(ThanksGivenApplication.class);
 		String[] args = getParameters().getRaw().stream().toArray(String[]::new);
 		return builder.run(args);
+	}
+	
+	public void startPanes() {
+		CadastroController.hidePane();
+		LoginController.showPane();
 	}
 
 }
