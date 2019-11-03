@@ -1,4 +1,4 @@
-package br.com.ifsp.ThanksGiven.controller;
+package br.com.ifsp.ThanksGiven.Controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -7,9 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import org.springframework.stereotype.Controller;
 
-@Controller
+
 public class CadastroController {
 
     @FXML

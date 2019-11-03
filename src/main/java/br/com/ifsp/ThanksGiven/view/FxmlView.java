@@ -1,4 +1,4 @@
-package br.com.ifsp.ThanksGiven.view;
+package br.com.ifsp.ThanksGiven.View;
 
 import java.util.ResourceBundle;
 
@@ -6,23 +6,23 @@ public enum FxmlView {
     USER {
         @Override
         public String getTitle() {
-            return getStringFromResourceBundle("application.title");
+            return getStringFromResourceBundle("user.title");
         }
 
         @Override
         public String getFxmlFile() {
-            return "/FXML/User.fxml";
+            return "/fxml/User.fxml";
         }
     },
     LOGIN {
         @Override
         public String getTitle() {
-            return getStringFromResourceBundle("application.title");
+            return getStringFromResourceBundle("ThanksGiven");
         }
 
         @Override
         public String getFxmlFile() {
-            return "/FXML/LoginView.fxml";
+            return "/fxml/LoginView.fxml";
         }
     };
 
