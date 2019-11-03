@@ -9,10 +9,12 @@
 	<packaging>jar</packaging>
 
 	<name>Op3n</name>
+	<description>Sistema para doação e aquisição de produtos</description>
 	<url>http://maven.apache.org</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
 	</properties>
 
 	<dependencies>
