@@ -1,16 +1,17 @@
-package br.com.ifsp.ThanksGiven.Controller;
+package br.com.ifsp.ThanksGiven.controller;
 
-import br.com.ifsp.ThanksGiven.Controller.CadastroController;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import org.springframework.stereotype.Controller;
 
-
-public class LoginController {
+@Controller
+public class LoginController implements Initializable {
 
     @FXML
     private ResourceBundle resources;
@@ -79,7 +80,10 @@ public class LoginController {
 
 
     }
-    
-   
 
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }

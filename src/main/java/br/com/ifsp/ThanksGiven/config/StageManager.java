@@ -1,16 +1,20 @@
 package br.com.ifsp.ThanksGiven.config;
-import static org.slf4j.LoggerFactory.getLogger;
-
-import java.util.Objects;
-
-import br.com.ifsp.ThanksGiven.View.*;
-import org.slf4j.Logger;
 
 
+import br.com.ifsp.ThanksGiven.view.FxmlView;
 import javafx.application.Platform;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
+
+import java.util.Objects;
+
+import static org.slf4j.LoggerFactory.getLogger;
 
 public class StageManager {
     private static final Logger LOG = getLogger(StageManager.class);
