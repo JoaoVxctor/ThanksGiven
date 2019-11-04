@@ -1,13 +1,17 @@
 package br.edu.ifsp.cmp.Op3n;
 
-import org.hibernate.annotations.Parent;
+
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import sun.net.www.ApplicationLaunchException;
+import javafx.application.Application;
+import javafx.scene.Parent;
+import javafx.stage.Stage;
+
 
 @SpringBootApplication
-public class App   {
+public class App extends Application   {
 	private ConfigurableApplicationContext springContext;
 	private Parent rootNode;
 
@@ -16,5 +20,8 @@ public class App   {
 	}
 
 
-
+	@Override
+	public void start(Stage stage) throws Exception {
+		
+	}
 }
