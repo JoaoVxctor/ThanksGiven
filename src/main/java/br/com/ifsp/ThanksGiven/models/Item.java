@@ -14,6 +14,11 @@ public class Item {
     private String titulo;
     private String descricao;
 
+    public Item(String titulo, String descricao) {
+        this.titulo = titulo;
+        this.descricao = descricao;
+    }
+
     public Long getId() {
         return id;
     }
@@ -35,11 +40,6 @@ public class Item {
     }
 
     public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public Item(String titulo, String descricao) {
-        this.titulo = titulo;
         this.descricao = descricao;
     }
 }
