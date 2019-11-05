@@ -15,6 +15,12 @@ public class Doacao {
     @OneToOne
     private Endereco endereco;
 
+    public Doacao(Usuario doador, Usuario receptor, Endereco endereco) {
+        this.doador = doador;
+        this.receptor = receptor;
+        this.endereco = endereco;
+    }
+
     public Long getId() {
         return id;
     }
@@ -44,12 +50,6 @@ public class Doacao {
     }
 
     public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
-    }
-
-    public Doacao(Usuario doador, Usuario receptor, Endereco endereco) {
-        this.doador = doador;
-        this.receptor = receptor;
         this.endereco = endereco;
     }
 }

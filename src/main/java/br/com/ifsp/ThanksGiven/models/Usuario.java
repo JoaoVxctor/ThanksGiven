@@ -1,8 +1,10 @@
 package br.com.ifsp.ThanksGiven.models;
 
 
-
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Usuario {
@@ -12,6 +14,12 @@ public class Usuario {
     private String nomeCompleto;
     private String email;
     private String senha;
+
+    public Usuario(String nomeCompleto, String email, String senha) {
+        this.nomeCompleto = nomeCompleto;
+        this.email = email;
+        this.senha = senha;
+    }
 
     public Long getId() {
         return id;
@@ -42,12 +50,6 @@ public class Usuario {
     }
 
     public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    public Usuario(String nomeCompleto, String email, String senha) {
-        this.nomeCompleto = nomeCompleto;
-        this.email = email;
         this.senha = senha;
     }
 }
