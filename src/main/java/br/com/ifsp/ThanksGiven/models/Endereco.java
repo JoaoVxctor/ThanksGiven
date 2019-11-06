@@ -17,6 +17,14 @@ public class Endereco {
     private String numero;
     private String completmento;
 
+    public Endereco(String rua, String logradouro, String cep, String numero, String completmento) {
+        this.rua = rua;
+        this.logradouro = logradouro;
+        this.cep = cep;
+        this.numero = numero;
+        this.completmento = completmento;
+    }
+
     public String getRua() {
         return rua;
     }
@@ -54,14 +62,6 @@ public class Endereco {
     }
 
     public void setCompletmento(String completmento) {
-        this.completmento = completmento;
-    }
-
-    public Endereco(String rua, String logradouro, String cep, String numero, String completmento) {
-        this.rua = rua;
-        this.logradouro = logradouro;
-        this.cep = cep;
-        this.numero = numero;
         this.completmento = completmento;
     }
 }
