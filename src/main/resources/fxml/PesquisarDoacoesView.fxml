@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" fx:id="panePesquisarDoacoes" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-border-color: #ffffff&#10;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="br.com.ifsp.ThanksGiven.controller.PesquisarDoacoesController">
+  <children>
+    <Label layoutX="42.0" layoutY="42.0" prefHeight="72.0" prefWidth="461.0" text="Digite abaixo o que você procura:" textFill="#58bef1">
+      <font>
+        <Font name="Franklin Gothic Medium" size="25.0" />
+      </font>
+    </Label>
+    <TextField id="TextFieldPesquisaDoacoes" fx:id="textFieldPesquisa" layoutX="39.0" layoutY="114.0" prefWidth="450.0" style="-fx-border-color: #58bef1;" />
+    <TableView fx:id="tableViewResultadoPesquisa" blendMode="HARD_LIGHT" layoutX="39.0" layoutY="154.0" prefHeight="163.0" prefWidth="450.0" style="-fx-border-color: #58bef1;&#10;&#10;" />
+    <Button fx:id="buttonBuscarDoacoes" layoutX="503.0" layoutY="115.0" minWidth="28.0" mnemonicParsing="false" onMouseClicked="#clickBuscarDoacoes" prefHeight="23.0" prefWidth="62.0" style="-fx-background-color: white; -fx-border-color: #58bef1;" text="Buscar">
+      <font>
+        <Font name="Franklin Gothic Medium" size="12.0" fx:id="x1" />
+      </font>
+      <textFill>
+        <Color blue="0.616" green="0.475" red="0.169" fx:id="x3" />
+      </textFill>
+    </Button>
+    <Button fx:id="buttonOpcaoAdicionarDoacoes" font="$x1" layoutX="39.0" layoutY="340.0" minWidth="28.0" mnemonicParsing="false" onMouseClicked="#clickIrPaneAdicionarDoacoes" prefHeight="23.0" prefWidth="126.0" style="-fx-background-color: white; -fx-border-color: #58bef1;" text="Adicionar Doação" textFill="$x3" />
+    <Button fx:id="buttonOpcaoMinhasAquisicoes" font="$x1" layoutX="189.0" layoutY="340.0" minWidth="28.0" mnemonicParsing="false" onMouseClicked="#clickIrPaneMinhasAquisicoes" prefHeight="23.0" prefWidth="126.0" style="-fx-background-color: white; -fx-border-color: #58bef1;" text="Minhas Aquisições" textFill="$x3" />
+    <Button fx:id="buttonOpcaoMinhasDoacoes" font="$x1" layoutX="339.0" layoutY="340.0" minWidth="28.0" mnemonicParsing="false" onMouseClicked="#clickIrPaneMinhasDoacoes" prefHeight="23.0" prefWidth="126.0" style="-fx-background-color: white; -fx-border-color: #58bef1;" text="Minhas Doações" textFill="$x3" />
+    <Button fx:id="buttonSairConta" font="$x1" layoutX="503.0" layoutY="340.0" minWidth="28.0" mnemonicParsing="false" onMouseClicked="#clickSairConta" prefHeight="23.0" prefWidth="62.0" style="-fx-background-color: white; -fx-border-color: #58bef1;" text="Sair" textFill="$x3" />
+  </children>
+</AnchorPane>

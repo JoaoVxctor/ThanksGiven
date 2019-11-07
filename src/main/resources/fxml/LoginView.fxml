@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="paneLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff&#10;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="br.com.ifsp.ThanksGiven.controller.LoginController">
+  <children>
+    <Group id="Group" layoutX="105.0" layoutY="28.0">
+      <children>
+        <Label layoutX="51.0" layoutY="0.0" prefHeight="140.0" prefWidth="277.0" text="ThanksGiven" textFill="#59c0f0">
+          <font>
+            <Font name="Franklin Gothic Medium" size="50.0" />
+          </font>
+        </Label>
+        <Label layoutX="58.0" layoutY="100.0" text="Facilitando doações">
+          <font>
+            <Font name="Franklin Gothic Medium Italic" size="12.0" />
+          </font>
+          <textFill>
+            <Color blue="0.616" green="0.475" red="0.169" fx:id="x4" />
+          </textFill>
+        </Label>
+      </children>
+    </Group>
+    <Button fx:id="buttonEntrar" layoutX="247.0" layoutY="274.0" mnemonicParsing="false" onMouseClicked="#clickEntrarLogin" prefHeight="20.4521484375" prefWidth="111.0" style="-fx-background-color: white; -fx-border-color: #58bef1;" text="Entrar" textFill="#2b799d">
+      <font>
+        <Font name="Franklin Gothic Medium" size="12.0" fx:id="x2" />
+      </font>
+    </Button>
+    <Label layoutX="247.0" layoutY="312.0" text="Não possui login?" textFill="BLACK">
+      <font>
+        <Font name="Franklin Gothic Medium" size="14.0" fx:id="x3" />
+      </font>
+    </Label>
+    <Button fx:id="buttonCadastreSe" font="$x2" layoutX="247.0" layoutY="335.0" mnemonicParsing="false" onMouseClicked="#clickCadastrarSe" prefHeight="25.0" prefWidth="111.0" style="-fx-background-color: white; -fx-border-color: #58bef1;" text="Cadastre-se" textFill="$x4" />
+    <Label font="$x3" layoutX="154.0" layoutY="200.0" prefHeight="14.0" prefWidth="61.0" text="Login:">
+      <textFill>
+        <Color blue="0.625" green="0.625" red="0.625" fx:id="x1" />
+      </textFill>
+    </Label>
+    <TextField fx:id="TextFieldLogin" alignment="CENTER" layoutX="215.0" layoutY="196.0" prefWidth="204.0" style="-fx-border-color: #58bef1;" />
+    <Label font="$x3" layoutX="156.0" layoutY="241.0" text="Senha:" textFill="$x1" />
+    <TextField fx:id="TextFieldSenha" layoutX="215.0" layoutY="237.0" prefWidth="204.0" style="-fx-border-color: #58bef1;" />
+  </children>
+</Pane>
