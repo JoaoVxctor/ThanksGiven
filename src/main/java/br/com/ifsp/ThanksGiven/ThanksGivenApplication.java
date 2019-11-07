@@ -11,7 +11,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 @SpringBootApplication
 public class ThanksGivenApplication extends Application {
     protected ConfigurableApplicationContext springContext;
-    protected StageManager stageManager;
+    public static StageManager stageManager;
 
     public static void main(final String[] args) {
         Application.launch(args);
