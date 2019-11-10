@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UsuarioService {
 
-    BCryptPasswordEncoder bCryptPasswordEncoder;
+    BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
     private UsuarioRepository usuarioRepository;
 
@@ -26,8 +26,6 @@ public class UsuarioService {
         if (usuarioRepository.findUsuarioByEmail(usuario.getEmail()) != null)
             throw new UsuarioException("Usuário já existente");
 
-        bCryptPasswordEncoder = new BCryptPasswordEncoder();
-
         usuario.setSenha(bCryptPasswordEncoder.encode(usuario.getSenha()));
         return usuarioRepository.save(usuario);
     }
@@ -35,8 +33,6 @@ public class UsuarioService {
     public Usuario buscaUsuario(Usuario usuario) throws UsuarioException {
         if (usuario == null)
             throw new NullPointerException();
-
-        bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
         Usuario retorno = usuarioRepository.findUsuarioByEmail(usuario.getEmail());
         if (retorno == null || !bCryptPasswordEncoder.matches(usuario.getSenha(), retorno.getSenha()))
