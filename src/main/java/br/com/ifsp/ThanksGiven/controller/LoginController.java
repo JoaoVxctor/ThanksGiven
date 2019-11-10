@@ -3,6 +3,8 @@ package br.com.ifsp.ThanksGiven.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import br.com.ifsp.ThanksGiven.exception.UsuarioException;
+import br.com.ifsp.ThanksGiven.models.Usuario;
 import br.com.ifsp.ThanksGiven.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -55,6 +57,11 @@ public class LoginController {
     @FXML
     void clickEntrarLogin(MouseEvent event) {
 //    	ThanksGivenApplication.stageManager.switchScene(FxmlView.PESQUISARDOACOES);
+        try {
+            Usuario usuario = usuarioService.buscaUsuario(new Usuario(TextFieldLogin.getText(), TextFieldSenha.getText()));
+        } catch (UsuarioException e) {
+            System.out.println(e.getMessage());
+        }
 
     }
 

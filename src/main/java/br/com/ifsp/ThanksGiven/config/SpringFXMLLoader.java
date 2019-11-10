@@ -26,7 +26,7 @@ public class SpringFXMLLoader {
         FXMLLoader loader = new FXMLLoader();
         loader.setControllerFactory(context::getBean); //Spring now FXML Controller Factory
         loader.setResources(resourceBundle);
-        System.out.println("ameno dorimoe : " + getClass().getResource(fxmlPath));
+
         loader.setLocation(getClass().getResource(fxmlPath));
         return loader.load();
         }catch (Exception e){
