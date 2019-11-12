@@ -21,6 +21,24 @@ public class Usuario {
         this.senha = senha;
     }
 
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", nomeCompleto='" + nomeCompleto + '\'' +
+                ", email='" + email + '\'' +
+                ", senha='" + senha + '\'' +
+                '}';
+    }
+
+    public Usuario(String email, String senha) {
+        this.email = email;
+        this.senha = senha;
+    }
+
+    public Usuario() {
+    }
+
     public Long getId() {
         return id;
     }
