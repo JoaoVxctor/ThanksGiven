@@ -1,7 +1,7 @@
 package br.com.ifsp.ThanksGiven.config;
 
 import javafx.fxml.FXMLLoader;
-import org.hibernate.annotations.Parent;
+import javafx.scene.Parent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
@@ -21,12 +21,18 @@ public class SpringFXMLLoader {
         this.context = context;
     }
 
-    public Parent load(String fxmlPath) throws IOException, IOException {
+    public Parent load(String fxmlPath) throws IOException {
+        try{
         FXMLLoader loader = new FXMLLoader();
-        loader.setControllerFactory(context::getBean); //Spring now FXML Controller Factory
+        loader.setControllerFactory(context::getBean);
         loader.setResources(resourceBundle);
+
         loader.setLocation(getClass().getResource(fxmlPath));
         return loader.load();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

@@ -1,16 +1,16 @@
 package br.com.ifsp.ThanksGiven.config;
-import static org.slf4j.LoggerFactory.getLogger;
-
-import java.util.Objects;
 
 import br.com.ifsp.ThanksGiven.view.FxmlView;
-import org.slf4j.Logger;
-
-
 import javafx.application.Platform;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+
+import java.util.Objects;
+
+import static org.slf4j.LoggerFactory.getLogger;
+
 
 public class StageManager {
     private static final Logger LOG = getLogger(StageManager.class);
@@ -40,11 +40,11 @@ public class StageManager {
         try {
             primaryStage.show();
         } catch (Exception exception) {
-            logAndExit ("Unable to show scene for title" + title,  exception);
+            logAndExit("Unable to show scene for title" + title, exception);
         }
     }
 
-    private Scene prepareScene(Parent rootnode){
+    private Scene prepareScene(Parent rootnode) {
         Scene scene = primaryStage.getScene();
 
         if (scene == null) {
@@ -63,10 +63,12 @@ public class StageManager {
     private Parent loadViewNodeHierarchy(String fxmlFilePath) {
         Parent rootNode = null;
         try {
-            rootNode = (Parent) springFXMLLoader.load(fxmlFilePath);
+            rootNode = springFXMLLoader.load(fxmlFilePath);
             Objects.requireNonNull(rootNode, "A Root FXML node must not be null");
         } catch (Exception exception) {
-            logAndExit("Unable to load FXML view" + fxmlFilePath, exception);
+            System.out.println("excetpiom : " + exception);
+
+            logAndExit("Unable to load FXML view " + fxmlFilePath, exception);
         }
         return rootNode;
     }
