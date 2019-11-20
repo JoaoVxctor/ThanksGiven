@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-<Pane fx:id="paneCadastro" prefHeight="400.0" prefWidth="600.0" style="-fx-border-color: white" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="br.com.ifsp.ThanksGiven.controller.CadastroController">
+<Pane fx:id="paneCadastro" prefHeight="400.0" prefWidth="600.0" style="-fx-border-color: white" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.ifsp.ThanksGiven.controller.CadastroController">
   <children>
     <Label layoutX="37.0" layoutY="18.0" prefHeight="71.9609375" prefWidth="313.0" text="Cadastro">
       <font>
@@ -23,23 +24,21 @@
       </font>
     </Label>
     <Label font="$x2" layoutX="37.0" layoutY="145.0" prefHeight="25.0" prefWidth="62.0" text="E-mail :" />
-    <Label font="$x2" layoutX="37.0" layoutY="180.0" prefHeight="25.0" prefWidth="62.0" text="CPF :" />
-    <Label font="$x2" layoutX="37.0" layoutY="251.0" prefHeight="25.0" prefWidth="62.0" text="Senha :" />
-    <TextField fx:id="TextFieldCadastroNome" layoutX="115.0" layoutY="108.0" prefWidth="325.0" style="-fx-border-color: #58bef1;" />
-    <TextField fx:id="TextFieldCadastroEmail" layoutX="115.0" layoutY="146.0" prefWidth="325.0" style="-fx-border-color: #58bef1;" />
-    <TextField fx:id="TextFieldCadastroCPF" layoutX="115.0" layoutY="180.0" prefWidth="324.999977929685" style="-fx-border-color: #58bef1;" />
-    <TextField fx:id="TextFieldCadastroSenha" layoutX="115.0" layoutY="251.0" prefWidth="325.0" style="-fx-border-color: #58bef1;" />
+    <Label font="$x2" layoutX="37.0" layoutY="225.0" prefHeight="25.0" prefWidth="62.0" text="Senha :" />
+    <TextField fx:id="textFieldCadastroNome" layoutX="115.0" layoutY="108.0" prefWidth="325.0" style="-fx-border-color: #58bef1;" />
+    <TextField fx:id="textFieldCadastroEmail" layoutX="115.0" layoutY="146.0" prefWidth="325.0" style="-fx-border-color: #58bef1;" />
     <Button fx:id="buttonCadastrar" layoutX="232.0" layoutY="309.0" mnemonicParsing="false" onMouseClicked="#clickCadastrar" prefHeight="48.0" prefWidth="137.0" style="-fx-background-color: white; -fx-border-color: #58bef1;" text="Cadastrar" textFill="#2b799d">
       <font>
         <Font name="Franklin Gothic Medium" size="12.0" fx:id="x3" />
       </font>
     </Button>
-    <Label font="$x2" layoutX="37.0" layoutY="215.0" prefHeight="25.0" prefWidth="62.0" text="Login :" />
-    <TextField fx:id="TextFieldCadastroLogin" layoutX="115.0" layoutY="216.0" prefWidth="325.0" style="-fx-border-color: #58bef1;" />
+    <Label font="$x2" layoutX="37.0" layoutY="188.0" prefHeight="25.0" prefWidth="62.0" text="Login :" />
+    <TextField fx:id="textFieldCadastroLogin" layoutX="115.0" layoutY="187.0" prefWidth="325.0" style="-fx-border-color: #58bef1;" />
     <Label fx:id="labelVoltarCadastroPane" layoutX="14.0" layoutY="0.0" minHeight="17.999908447265625" onMouseClicked="#clickVoltarLoginPane" prefHeight="48.0" prefWidth="62.0000084472631" text="&lt;" textFill="$x1">
       <font>
         <Font name="Franklin Gothic Medium" size="25.0" />
       </font>
     </Label>
+      <PasswordField fx:id="passwordFieldCadastro" layoutX="115.0" layoutY="224.0" prefHeight="25.0" prefWidth="325.0" style="-fx-border-color: #58bef1;" />
   </children>
 </Pane>

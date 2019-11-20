@@ -3,6 +3,10 @@ package br.com.ifsp.ThanksGiven.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import br.com.ifsp.ThanksGiven.exception.UsuarioException;
+import br.com.ifsp.ThanksGiven.models.Usuario;
+import br.com.ifsp.ThanksGiven.service.UsuarioService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import br.com.ifsp.ThanksGiven.ThanksGivenApplication;
@@ -13,9 +17,17 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.control.PasswordField;
+
 
 @Controller
 public class CadastroController {
+    UsuarioService usuarioService;
+
+    @Autowired
+    public CadastroController(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
+    }
 
     @FXML
     private ResourceBundle resources;
@@ -23,20 +35,19 @@ public class CadastroController {
     @FXML
     private URL location;
 
-    @FXML
-    private TextField TextFieldCadastroCPF;
+
 
     @FXML
-    private TextField TextFieldCadastroEmail;
+    private TextField textFieldCadastroEmail;
 
     @FXML
-    private TextField TextFieldCadastroLogin;
+    private TextField textFieldCadastroLogin;
 
     @FXML
-    private TextField TextFieldCadastroNome;
+    private TextField textFieldCadastroNome;
 
     @FXML
-    private TextField TextFieldCadastroSenha;
+    private PasswordField passwordFieldCadastro;
 
     @FXML
     private Button buttonCadastrar;
@@ -49,9 +60,15 @@ public class CadastroController {
 
 
     @FXML
-    void clickCadastrar(MouseEvent event) {
-    	ThanksGivenApplication.stageManager.switchScene(FxmlView.PESQUISARDOACOES);
+    void clickCadastrar(MouseEvent event) throws UsuarioException {
+//    	ThanksGivenApplication.stageManager.switchScene(FxmlView.PESQUISARDOACOES);
+        try{
+            usuarioService.cadastraUsuario(new Usuario(textFieldCadastroNome.getText(),textFieldCadastroEmail.getText(),passwordFieldCadastro.getText()));
+        }catch (UsuarioException e){
+            System.out.println(e);
+        }
     }
+
 
     @FXML
     void clickVoltarLoginPane(MouseEvent event) {
@@ -60,11 +77,10 @@ public class CadastroController {
 
     @FXML
     void initialize() {
-        assert TextFieldCadastroCPF != null : "fx:id=\"TextFieldCadastroCPF\" was not injected: check your FXML file 'CadastroView.fxml'.";
-        assert TextFieldCadastroEmail != null : "fx:id=\"TextFieldCadastroEmail\" was not injected: check your FXML file 'CadastroView.fxml'.";
-        assert TextFieldCadastroLogin != null : "fx:id=\"TextFieldCadastroLogin\" was not injected: check your FXML file 'CadastroView.fxml'.";
-        assert TextFieldCadastroNome != null : "fx:id=\"TextFieldCadastroNome\" was not injected: check your FXML file 'CadastroView.fxml'.";
-        assert TextFieldCadastroSenha != null : "fx:id=\"TextFieldCadastroSenha\" was not injected: check your FXML file 'CadastroView.fxml'.";
+        assert textFieldCadastroEmail != null : "fx:id=\"textFieldCadastroEmail\" was not injected: check your FXML file 'CadastroView.fxml'.";
+        assert textFieldCadastroLogin != null : "fx:id=\"textFieldCadastroLogin\" was not injected: check your FXML file 'CadastroView.fxml'.";
+        assert textFieldCadastroNome != null : "fx:id=\"textFieldCadastroNome\" was not injected: check your FXML file 'CadastroView.fxml'.";
+        assert passwordFieldCadastro != null : "fx:id=\"passwordFieldCadastro\" was not injected: check your FXML file 'CadastroView.fxml'.";
         assert buttonCadastrar != null : "fx:id=\"buttonCadastrar\" was not injected: check your FXML file 'CadastroView.fxml'.";
         assert labelVoltarCadastroPane != null : "fx:id=\"labelVoltarCadastroPane\" was not injected: check your FXML file 'CadastroView.fxml'.";
         assert paneCadastro != null : "fx:id=\"paneCadastro\" was not injected: check your FXML file 'CadastroView.fxml'.";
