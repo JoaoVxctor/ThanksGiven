@@ -3,30 +3,46 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="MyAquisitionsPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#GoBackAction" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" fx:id="paneMinhasDoacoes" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-border-color:#ffffff&#10;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.ifsp.ThanksGiven.controller.MinhasDoacoesController">
    <children>
-      <Label layoutX="41.0" prefHeight="71.9609375" prefWidth="313.0" text="Minhas Aquisições" textFill="#58bef1">
+      <Label layoutX="40.0" layoutY="47.0" prefHeight="72.0" prefWidth="461.0" text="Minhas Aquisições:">
          <font>
             <Font name="Franklin Gothic Medium" size="36.0" />
          </font>
+         <textFill>
+            <Color blue="0.945" green="0.745" red="0.345" fx:id="x2" />
+         </textFill>
       </Label>
-      <VBox layoutX="519.0" layoutY="95.0" />
-      <TableView blendMode="HARD_LIGHT" layoutX="13.0" layoutY="120.0" prefHeight="247.0" prefWidth="277.0" style="-fx-background-color: #ffffff; -fx-border-color: #58bef1;" />
-      <ChoiceBox fx:id="CBEstadoAquis" layoutX="300.0" layoutY="218.0" onMouseClicked="#SelectOption" prefHeight="20.4521484375" prefWidth="111.0" style="-fx-background-color: #ffffff; -fx-border-color: #58bef1;" />
-      <Label layoutX="14.0" layoutY="19.0" text="&lt;" textAlignment="CENTER" textFill="#58bef1">
+      <Button fx:id="buttonSairConta" layoutX="501.0" layoutY="358.0" minWidth="28.0" mnemonicParsing="false" onMouseClicked="#clickSairConta" prefHeight="23.0" prefWidth="62.0" style="-fx-background-color: white; -fx-border-color: #58bef1;" text="Sair" textFill="#2b799d">
+         <font>
+            <Font name="Franklin Gothic Medium" size="12.0" fx:id="x1" />
+         </font>
+      </Button>
+      <Label fx:id="labelVoltarPesquisarDoacoes" layoutX="14.0" layoutY="24.0" onMouseClicked="#clickVoltarPesquisarDoacoesPane" prefHeight="22.0" prefWidth="28.0" text="&lt;" textFill="$x2">
          <font>
             <Font name="Franklin Gothic Medium" size="20.0" />
          </font>
       </Label>
-      <Button fx:id="ButtonConfirmar" layoutX="475.0" layoutY="218.0" mnemonicParsing="false" onMouseClicked="#ClickConfirmaEstado" prefHeight="20.4521484375" prefWidth="111.0" style="-fx-background-color: white; -fx-border-color: #58bef1;" text="Confirmar" textFill="#2b799d">
+      <ChoiceBox blendMode="HARD_LIGHT" layoutX="366.0" layoutY="155.0" onMouseClicked="#clickOpenChoices" prefHeight="27.0" prefWidth="92.0" style="-fx-border-color: #58bef1; -fx-background-color: white;" />
+      <TableView fx:id="tableViewMinhasDoacoes" blendMode="HARD_LIGHT" layoutX="14.0" layoutY="127.0" prefHeight="203.0" prefWidth="343.0" style="-fx-border-color: #58bef1;&#10;&#10;">
+         <columns>
+            <TableColumn minWidth="0.0" prefWidth="0.0" />
+            <TableColumn prefWidth="95.19998168945312" text="Produto" />
+            <TableColumn prefWidth="73.60003662109375" text="Estado" />
+            <TableColumn prefWidth="62.39996337890625" text="Figura" />
+            <TableColumn prefWidth="105.5999755859375" text="End de Entrega" />
+         </columns>
+      </TableView>
+      <Button fx:id="buttonSairConta1" layoutX="493.0" layoutY="157.0" minWidth="28.0" mnemonicParsing="false" onMouseClicked="#clickSairConta" prefHeight="24.0" prefWidth="78.0" style="-fx-background-color: white; -fx-border-color: #58bef1;" text="Confirmar" textFill="#2b799d">
          <font>
-            <Font name="Franklin Gothic Medium" size="12.0" fx:id="x2" />
+            <Font name="Franklin Gothic Medium" size="12.0" fx:id="x11" />
          </font>
       </Button>
    </children>
-</Pane>
+</AnchorPane>
