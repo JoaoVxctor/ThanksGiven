@@ -14,12 +14,7 @@ public class Doacao {
     private Usuario receptor;
     @OneToOne
     private Endereco endereco;
-
-    public Doacao(Usuario doador, Usuario receptor, Endereco endereco) {
-        this.doador = doador;
-        this.receptor = receptor;
-        this.endereco = endereco;
-    }
+    private boolean disponivel;
 
     public Long getId() {
         return id;
@@ -51,5 +46,23 @@ public class Doacao {
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
+    }
+
+    public boolean isDisponivel() {
+        return disponivel;
+    }
+
+    public void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
+    }
+
+    public Doacao() {
+    }
+
+    public Doacao(Usuario doador, Usuario receptor, Endereco endereco, boolean disponivel) {
+        this.doador = doador;
+        this.receptor = receptor;
+        this.endereco = endereco;
+        this.disponivel = disponivel;
     }
 }
