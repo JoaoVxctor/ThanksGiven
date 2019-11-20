@@ -3,6 +3,7 @@ package br.com.ifsp.ThanksGiven.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import br.com.ifsp.ThanksGiven.config.Session;
 import br.com.ifsp.ThanksGiven.exception.UsuarioException;
 import br.com.ifsp.ThanksGiven.models.Usuario;
 import br.com.ifsp.ThanksGiven.service.UsuarioService;
@@ -60,6 +61,8 @@ public class LoginController {
 //    	ThanksGivenApplication.stageManager.switchScene(FxmlView.PESQUISARDOACOES);
         try {
             Usuario usuario = usuarioService.buscaUsuario(new Usuario(textFieldLogin.getText(), passwordFieldLogin.getText()));
+            Session.getSession().setUsuario(usuario);
+            ThanksGivenApplication.stageManager.switchScene(FxmlView.PESQUISARDOACOES);
         } catch (UsuarioException e) {
             System.out.println(e.getMessage());
         }

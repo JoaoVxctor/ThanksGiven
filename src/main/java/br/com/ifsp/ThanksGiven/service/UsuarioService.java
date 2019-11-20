@@ -23,7 +23,7 @@ public class UsuarioService {
         if (usuario == null)
             throw new NullPointerException();
 
-        if (usuarioRepository.findUsuarioByEmail(usuario.getEmail()) != null)
+        if (usuarioRepository.findUsuarioByLogin(usuario.getEmail()) != null)
             throw new UsuarioException("Usuário já existente");
 
         usuario.setSenha(bCryptPasswordEncoder.encode(usuario.getSenha()));
@@ -34,7 +34,7 @@ public class UsuarioService {
         if (usuario == null)
             throw new NullPointerException();
 
-        Usuario retorno = usuarioRepository.findUsuarioByEmail(usuario.getEmail());
+        Usuario retorno = usuarioRepository.findUsuarioByLogin(usuario.getLogin());
         if (retorno == null || !bCryptPasswordEncoder.matches(usuario.getSenha(), retorno.getSenha()))
             throw new UsuarioException("Email e/ou Senha inválido(s)");
 
