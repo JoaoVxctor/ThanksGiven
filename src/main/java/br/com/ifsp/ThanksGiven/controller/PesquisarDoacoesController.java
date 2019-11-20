@@ -3,6 +3,12 @@ package br.com.ifsp.ThanksGiven.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import br.com.ifsp.ThanksGiven.config.Session;
+import br.com.ifsp.ThanksGiven.models.Doacao;
+import br.com.ifsp.ThanksGiven.service.DoacaoService;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import br.com.ifsp.ThanksGiven.ThanksGivenApplication;
@@ -16,6 +22,13 @@ import javafx.scene.layout.AnchorPane;
 
 @Controller
 public class PesquisarDoacoesController {
+
+    private DoacaoService doacaoService;
+
+    @Autowired
+    public PesquisarDoacoesController(DoacaoService doacaoService) {
+        this.doacaoService = doacaoService;
+    }
 
     @FXML
     private ResourceBundle resources;
@@ -42,7 +55,7 @@ public class PesquisarDoacoesController {
     private AnchorPane panePesquisarDoacoes;
 
     @FXML
-    private TableView<?> tableViewResultadoPesquisa;
+    private TableView<Doacao> tableViewResultadoPesquisa;
 
     @FXML
     private TextField textFieldPesquisa;
@@ -84,7 +97,9 @@ public class PesquisarDoacoesController {
         assert panePesquisarDoacoes != null : "fx:id=\"panePesquisarDoacoes\" was not injected: check your FXML file 'PesquisarDoacoesView.fxml'.";
         assert tableViewResultadoPesquisa != null : "fx:id=\"tableViewResultadoPesquisa\" was not injected: check your FXML file 'PesquisarDoacoesView.fxml'.";
         assert textFieldPesquisa != null : "fx:id=\"textFieldPesquisa\" was not injected: check your FXML file 'PesquisarDoacoesView.fxml'.";
-
+        if(Session.getSession().getUsuario() == null)
+            ThanksGivenApplication.stageManager.switchScene(FxmlView.LOGIN);
+        tableViewResultadoPesquisa.setItems(FXCollections.observableArrayList(doacaoService.getDoacoesAtivas()));
 
     }
 
