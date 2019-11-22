@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root fx:id="paneLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" type="javafx.scene.layout.Pane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginController">
+<Pane fx:id="paneLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.ifsp.ThanksGiven.controller.AdicionarDoacoesController">
   <children>
     <Group id="Group" layoutX="105.0" layoutY="28.0" />
     <Button fx:id="buttonEntrar" layoutX="241.0" layoutY="362.0" mnemonicParsing="false" onMouseClicked="#clickEntrarLogin" prefHeight="20.4521484375" prefWidth="111.0" style="-fx-background-color: white; -fx-border-color: #58bef1;" text="Inserir" textFill="#2b799d">
@@ -57,4 +57,4 @@
          </font>
       </Label>
   </children>
-</fx:root>
+</Pane>
