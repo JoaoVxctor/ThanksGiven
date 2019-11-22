@@ -21,6 +21,7 @@ import java.util.ResourceBundle;
 
 @Controller
 public class CadastroController {
+
 	UsuarioService usuarioService;
 	@FXML
 	private ResourceBundle resources;
@@ -75,5 +76,4 @@ public class CadastroController {
 		assert paneCadastro != null : "fx:id=\"paneCadastro\" was not injected: check your FXML file 'CadastroView.fxml'.";
 
 	}
-
 }
