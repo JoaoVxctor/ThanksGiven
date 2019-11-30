@@ -16,6 +16,11 @@ public class Endereco {
     private String cep;
     private String numero;
     private String completmento;
+    
+    public Endereco (String rua) //TEMPORARIO, PRECISA COLOCAR MAIS CAMPOS NO CADASTRO (TALVEZ UMA NOVA TELA)
+    {
+        this.rua = rua;
+    }
 
     public Endereco(String rua, String logradouro, String cep, String numero, String completmento) {
         this.rua = rua;
