@@ -2,6 +2,7 @@ package br.com.ifsp.ThanksGiven.models;
 
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Requisicao {
@@ -15,6 +16,7 @@ public class Requisicao {
     @OneToOne
     private Doacao doacao;
     private boolean resposta;
+    private Date data;
 
     public Long getId() {
         return id;
@@ -56,12 +58,21 @@ public class Requisicao {
         this.resposta = resposta;
     }
 
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
     public Doacao(Usuario doador, Usuario receptor, Doacao doacao) {
         this.doador = doador;
         this.receptor = receptor;
         this.endereco = endereco;
         this.disponivel = disponivel;
         this.resposta = Null;
+        this.date = new Date();
     }
 
 }
