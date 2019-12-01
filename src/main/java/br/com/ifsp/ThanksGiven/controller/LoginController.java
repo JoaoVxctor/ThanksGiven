@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.control.PasswordField;
 
 @Controller
 public class LoginController {
@@ -34,10 +35,10 @@ public class LoginController {
     private URL location;
 
     @FXML
-    private TextField TextFieldLogin;
+    private TextField textFieldLogin;
 
     @FXML
-    private TextField TextFieldSenha;
+    private PasswordField passwordFieldLogin;
 
     @FXML
     private Button buttonCadastreSe;
@@ -58,7 +59,7 @@ public class LoginController {
     void clickEntrarLogin(MouseEvent event) {
 //    	ThanksGivenApplication.stageManager.switchScene(FxmlView.PESQUISARDOACOES);
         try {
-            Usuario usuario = usuarioService.buscaUsuario(new Usuario(TextFieldLogin.getText(), TextFieldSenha.getText()));
+            Usuario usuario = usuarioService.buscaUsuario(new Usuario(textFieldLogin.getText(), passwordFieldLogin.getText()));
         } catch (UsuarioException e) {
             System.out.println(e.getMessage());
         }
@@ -67,8 +68,8 @@ public class LoginController {
 
     @FXML
     void initialize() {
-        assert TextFieldLogin != null : "fx:id=\"TextFieldLogin\" was not injected: check your FXML file 'LoginView.fxml'.";
-        assert TextFieldSenha != null : "fx:id=\"TextFieldSenha\" was not injected: check your FXML file 'LoginView.fxml'.";
+        assert textFieldLogin != null : "fx:id=\"textFieldLogin\" was not injected: check your FXML file 'LoginView.fxml'.";
+        assert passwordFieldLogin != null : "fx:id=\"passwordFieldSenha\" was not injected: check your FXML file 'LoginView.fxml'.";
         assert buttonCadastreSe != null : "fx:id=\"buttonCadastreSe\" was not injected: check your FXML file 'LoginView.fxml'.";
         assert buttonEntrar != null : "fx:id=\"buttonEntrar\" was not injected: check your FXML file 'LoginView.fxml'.";
         assert paneLogin != null : "fx:id=\"paneLogin\" was not injected: check your FXML file 'LoginView.fxml'.";

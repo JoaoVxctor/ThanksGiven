@@ -17,6 +17,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.control.PasswordField;
+
 
 @Controller
 public class CadastroController {
@@ -33,20 +35,19 @@ public class CadastroController {
     @FXML
     private URL location;
 
-    @FXML
-    private TextField TextFieldCadastroCPF;
+
 
     @FXML
-    private TextField TextFieldCadastroEmail;
+    private TextField textFieldCadastroEmail;
 
     @FXML
-    private TextField TextFieldCadastroLogin;
+    private TextField textFieldCadastroLogin;
 
     @FXML
-    private TextField TextFieldCadastroNome;
+    private TextField textFieldCadastroNome;
 
     @FXML
-    private TextField TextFieldCadastroSenha;
+    private PasswordField passwordFieldCadastro;
 
     @FXML
     private Button buttonCadastrar;
@@ -62,7 +63,7 @@ public class CadastroController {
     void clickCadastrar(MouseEvent event) throws UsuarioException {
 //    	ThanksGivenApplication.stageManager.switchScene(FxmlView.PESQUISARDOACOES);
         try{
-            usuarioService.cadastraUsuario(new Usuario(TextFieldCadastroNome.getText(),TextFieldCadastroEmail.getText(),TextFieldCadastroSenha.getText()));
+            usuarioService.cadastraUsuario(new Usuario(textFieldCadastroNome.getText(),textFieldCadastroEmail.getText(),passwordFieldCadastro.getText()));
         }catch (UsuarioException e){
             System.out.println(e);
         }
@@ -76,11 +77,10 @@ public class CadastroController {
 
     @FXML
     void initialize() {
-        assert TextFieldCadastroCPF != null : "fx:id=\"TextFieldCadastroCPF\" was not injected: check your FXML file 'CadastroView.fxml'.";
-        assert TextFieldCadastroEmail != null : "fx:id=\"TextFieldCadastroEmail\" was not injected: check your FXML file 'CadastroView.fxml'.";
-        assert TextFieldCadastroLogin != null : "fx:id=\"TextFieldCadastroLogin\" was not injected: check your FXML file 'CadastroView.fxml'.";
-        assert TextFieldCadastroNome != null : "fx:id=\"TextFieldCadastroNome\" was not injected: check your FXML file 'CadastroView.fxml'.";
-        assert TextFieldCadastroSenha != null : "fx:id=\"TextFieldCadastroSenha\" was not injected: check your FXML file 'CadastroView.fxml'.";
+        assert textFieldCadastroEmail != null : "fx:id=\"textFieldCadastroEmail\" was not injected: check your FXML file 'CadastroView.fxml'.";
+        assert textFieldCadastroLogin != null : "fx:id=\"textFieldCadastroLogin\" was not injected: check your FXML file 'CadastroView.fxml'.";
+        assert textFieldCadastroNome != null : "fx:id=\"textFieldCadastroNome\" was not injected: check your FXML file 'CadastroView.fxml'.";
+        assert passwordFieldCadastro != null : "fx:id=\"passwordFieldCadastro\" was not injected: check your FXML file 'CadastroView.fxml'.";
         assert buttonCadastrar != null : "fx:id=\"buttonCadastrar\" was not injected: check your FXML file 'CadastroView.fxml'.";
         assert labelVoltarCadastroPane != null : "fx:id=\"labelVoltarCadastroPane\" was not injected: check your FXML file 'CadastroView.fxml'.";
         assert paneCadastro != null : "fx:id=\"paneCadastro\" was not injected: check your FXML file 'CadastroView.fxml'.";

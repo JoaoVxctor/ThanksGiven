@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToolBar?>
-<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="paneLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff&#10;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="br.com.ifsp.ThanksGiven.controller.LoginController">
+<Pane fx:id="paneLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff&#10;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.ifsp.ThanksGiven.controller.LoginController">
   <children>
     <Group id="Group" layoutX="105.0" layoutY="28.0">
       <children>
-        <Label layoutX="51.0" layoutY="0.0" prefHeight="140.0" prefWidth="277.0" text="ThanksGiven" textFill="#59c0f0">
+        <Label layoutX="51.0" layoutY="0.0" prefHeight="140.0" prefWidth="314.0" text="ThanksGiven" textFill="#59c0f0">
           <font>
             <Font name="Franklin Gothic Medium" size="50.0" />
           </font>
@@ -48,8 +44,8 @@
         <Color blue="0.625" green="0.625" red="0.625" fx:id="x1" />
       </textFill>
     </Label>
-    <TextField fx:id="TextFieldLogin" alignment="CENTER" layoutX="215.0" layoutY="196.0" prefWidth="204.0" style="-fx-border-color: #58bef1;" />
+    <TextField fx:id="textFieldLogin" alignment="CENTER" layoutX="215.0" layoutY="196.0" prefWidth="204.0" style="-fx-border-color: #58bef1;" />
     <Label font="$x3" layoutX="156.0" layoutY="241.0" text="Senha:" textFill="$x1" />
-    <TextField fx:id="TextFieldSenha" layoutX="215.0" layoutY="237.0" prefWidth="204.0" style="-fx-border-color: #58bef1;" />
+      <PasswordField fx:id="passwordFieldLogin" layoutX="215.0" layoutY="239.0" prefHeight="25.0" prefWidth="204.0" style="-fx-border-color: #58bef1;" />
   </children>
 </Pane>
