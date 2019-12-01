@@ -39,7 +39,7 @@ public class ThanksGivenApplication extends Application {
      * window.
      */
     protected void displayInitialScene() {
-        stageManager.switchScene(FxmlView.LOGIN);
+        stageManager.switchScene(FxmlView.ADDPRODUTO);
     }
 
 

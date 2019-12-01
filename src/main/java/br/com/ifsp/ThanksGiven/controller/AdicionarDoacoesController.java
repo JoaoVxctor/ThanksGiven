@@ -7,8 +7,11 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
+
 @Controller
 public class AdicionarDoacoesController {
+
+	private DoacaoService doacaoService;
 
 	@FXML
 	private Pane paneLogin;
@@ -20,16 +23,16 @@ public class AdicionarDoacoesController {
 	private Font x2;
 
 	@FXML
-	private Font x21;
+	private Font nome;
 
 	@FXML
-	private Font x211;
+	private Font descricao;
 
 	@FXML
-	private Font x212;
+	private Font endereco;
 
 	@FXML
-	private Font x213;
+	private Font imagem;
 
 	@FXML
 	void GoBackAction(MouseEvent event) {
@@ -37,8 +40,23 @@ public class AdicionarDoacoesController {
 	}
 
 	@FXML
-	void clickEntrarLogin(MouseEvent event) {
-
+	void clickAdicionarDoacao(MouseEvent event) {
+ 		try {
+				Usuario doador = Session.getSession().getUsuario();
+				Doacao novaDoacao = doacaoService.cadastraDoacao(
+					new Doacao(
+						doador,
+						nome.getText(),
+						descricao.getText(), 
+						new Endereco (
+							endereco.getText()
+						),
+						True
+					)
+			);
+            ThanksGivenApplication.stageManager.switchScene(FxmlView.MINHASDOACOES);
+        } catch (UsuarioException e) {
+            //exibir mensagem para verificar campos
+        }
 	}
-
 }
