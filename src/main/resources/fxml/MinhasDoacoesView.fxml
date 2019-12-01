@@ -29,7 +29,7 @@
         <Font name="Franklin Gothic Medium" size="20.0" />
       </font>
     </Label>
-      <ChoiceBox blendMode="HARD_LIGHT" layoutX="501.0" layoutY="159.0" onMouseClicked="#clickOpenChoices" prefHeight="26.0" prefWidth="90.0" style="-fx-border-color: #58bef1; -fx-background-color: white;" />
+
     <TableView fx:id="tableViewMinhasDoacoes" blendMode="HARD_LIGHT" layoutX="37.0" layoutY="132.0" prefHeight="203.0" prefWidth="450.0" style="-fx-border-color: #58bef1;&#10;&#10;">
          <columns>
             <TableColumn prefWidth="52.0" />
