@@ -1,11 +1,13 @@
 package br.com.ifsp.ThanksGiven.service;
 
 import br.com.ifsp.ThanksGiven.models.Doacao;
+import br.com.ifsp.ThanksGiven.models.Item;
 import br.com.ifsp.ThanksGiven.repository.DoacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -17,8 +19,12 @@ public class DoacaoService {
         this.doacaoRepository = doacaoRepository;
     }
 
-    public List<Doacao> getDoacoesAtivas(){
-        return doacaoRepository.findAllByReceptorIsNullAndDisponivelIsTrue();
+    public List<Item> getDoacoesAtivas(){
+        List<Item> itens = new ArrayList<>();
+        doacaoRepository.findAllByReceptorIsNullAndDisponivelIsTrue().forEach(doacao -> {
+             itens.add(doacao.getItem());
+         });
+        return itens;
     }
 
     @Transactional

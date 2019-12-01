@@ -4,14 +4,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import br.com.ifsp.ThanksGiven.config.Session;
-import br.com.ifsp.ThanksGiven.models.Doacao;
+import br.com.ifsp.ThanksGiven.models.Item;
 import br.com.ifsp.ThanksGiven.service.DoacaoService;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import br.com.ifsp.ThanksGiven.ThanksGivenApplication;
 import br.com.ifsp.ThanksGiven.view.FxmlView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -57,10 +57,19 @@ public class PesquisarDoacoesController {
     private AnchorPane panePesquisarDoacoes;
 
     @FXML
-    private TableView<Doacao> tableViewResultadoPesquisa;
+    private TableView<Item> tableViewResultadoPesquisa;
 
     @FXML
     private TextField textFieldPesquisa;
+
+    @FXML
+    private TableColumn<Item, String> doador;
+
+    @FXML
+    private TableColumn<Item, String> nome;
+
+    @FXML
+    private TableColumn<Item, String> descricao;
 
 
     @FXML
@@ -74,7 +83,6 @@ public class PesquisarDoacoesController {
 
     @FXML
     void clickIrPaneMinhasAquisicoes(MouseEvent event) {
-    	//colocar o fxml que o gui vai fazer
     	//stageManager.switchScene(FxmlView.);
     }
 
@@ -89,6 +97,11 @@ public class PesquisarDoacoesController {
     }
 
     @FXML
+    void doacaoClick(MouseEvent event){
+
+    }
+
+    @FXML
     void initialize() {
         assert buttonBuscarDoacoes != null : "fx:id=\"buttonBuscarDoacoes\" was not injected: check your FXML file 'PesquisarDoacoesView.fxml'.";
         assert buttonOpcaoAdicionarDoacoes != null : "fx:id=\"buttonOpcaoAdicionarDoacoes\" was not injected: check your FXML file 'PesquisarDoacoesView.fxml'.";
@@ -100,7 +113,13 @@ public class PesquisarDoacoesController {
         assert textFieldPesquisa != null : "fx:id=\"textFieldPesquisa\" was not injected: check your FXML file 'PesquisarDoacoesView.fxml'.";
         if(Session.getSession().getUsuario() == null)
             stageManager.switchScene(FxmlView.LOGIN);
+
+        descricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
+        nome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        doador.setCellValueFactory(new PropertyValueFactory<>("doador"));
+
         tableViewResultadoPesquisa.setItems(FXCollections.observableArrayList(doacaoService.getDoacoesAtivas()));
+
 
     }
 

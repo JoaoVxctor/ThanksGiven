@@ -35,7 +35,7 @@ public class ThanksGivenApplication extends Application {
 
 
     protected void displayInitialScene() {
-        stageManager.switchScene(FxmlView.MINHASDOACOES);
+        stageManager.switchScene(FxmlView.PESQUISARDOACOES);
     }
 
 
