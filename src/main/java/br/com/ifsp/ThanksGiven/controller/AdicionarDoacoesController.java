@@ -1,12 +1,18 @@
 package br.com.ifsp.ThanksGiven.controller;
 
-import org.springframework.stereotype.Controller;
-
+import br.com.ifsp.ThanksGiven.ThanksGivenApplication;
+import br.com.ifsp.ThanksGiven.config.Session;
+import br.com.ifsp.ThanksGiven.models.Doacao;
+import br.com.ifsp.ThanksGiven.models.Endereco;
+import br.com.ifsp.ThanksGiven.models.Usuario;
+import br.com.ifsp.ThanksGiven.service.DoacaoService;
+import br.com.ifsp.ThanksGiven.view.FxmlView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
+import org.springframework.stereotype.Controller;
 
 @Controller
 public class AdicionarDoacoesController {
@@ -43,20 +49,20 @@ public class AdicionarDoacoesController {
 	void clickAdicionarDoacao(MouseEvent event) {
  		try {
 				Usuario doador = Session.getSession().getUsuario();
-				Doacao novaDoacao = doacaoService.cadastraDoacao(
+			Doacao novaDoacao = doacaoService.cadastraDoacao(
 					new Doacao(
-						doador,
-						nome.getText(),
-						descricao.getText(), 
-						new Endereco (
-							endereco.getText()
-						),
-						True
+							doador,
+							nome.getText(),
+							descricao.getText(),
+							new Endereco(
+									endereco.getText()
+							),
+							true
 					)
 			);
             ThanksGivenApplication.stageManager.switchScene(FxmlView.MINHASDOACOES);
-        } catch (UsuarioException e) {
-            //exibir mensagem para verificar campos
+        } catch (Exception e) {
+
         }
 	}
 }

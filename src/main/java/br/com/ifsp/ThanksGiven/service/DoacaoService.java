@@ -9,8 +9,8 @@ import java.util.List;
 
 @Service
 public class DoacaoService {
-    private DoacaoRepository doacaoRepository;
 
+    private DoacaoRepository doacaoRepository;
     @Autowired
     public DoacaoService(DoacaoRepository doacaoRepository) {
         this.doacaoRepository = doacaoRepository;
@@ -40,7 +40,7 @@ public class DoacaoService {
         if (doacao == null)
             throw new NullPointerException();
         Doacao desativar = this.buscaDoacao(doacao);
-        desativar.setDisponivel(False);
+        desativar.setDisponivel(false);
         return doacaoRepository.save(desativar);
     }
 
@@ -48,7 +48,7 @@ public class DoacaoService {
         if (doacao == null)
             throw new NullPointerException();
         Doacao ativar = this.buscaDoacao(doacao);
-        ativar.setDisponivel(True);
+        ativar.setDisponivel(true);
         return doacaoRepository.save(ativar);
     }
 
