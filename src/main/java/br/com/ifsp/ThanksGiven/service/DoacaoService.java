@@ -5,6 +5,7 @@ import br.com.ifsp.ThanksGiven.repository.DoacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -20,6 +21,7 @@ public class DoacaoService {
         return doacaoRepository.findAllByReceptorIsNullAndDisponivelIsTrue();
     }
 
+    @Transactional
     public Doacao cadastraDoacao(Doacao doacao) throws NullPointerException {
         if (doacao == null)
             throw new NullPointerException();

@@ -58,10 +58,9 @@ public class LoginController {
 
     @FXML
     void clickEntrarLogin(MouseEvent event) {
-//    	ThanksGivenApplication.stageManager.switchScene(FxmlView.PESQUISARDOACOES);
         try {
-            Usuario usuario = usuarioService.buscaUsuario(new Usuario(textFieldLogin.getText(), passwordFieldLogin.getText()));
-            Session.getSession().setUsuario(usuario);
+
+            Session.getSession().setUsuario(usuarioService.buscaUsuario(new Usuario(textFieldLogin.getText(), passwordFieldLogin.getText())));
             ThanksGivenApplication.stageManager.switchScene(FxmlView.PESQUISARDOACOES);
         } catch (UsuarioException e) {
             System.out.println(e.getMessage());

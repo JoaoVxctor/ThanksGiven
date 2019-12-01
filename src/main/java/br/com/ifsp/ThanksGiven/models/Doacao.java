@@ -2,6 +2,7 @@ package br.com.ifsp.ThanksGiven.models;
 
 
 import javax.persistence.*;
+import java.util.Optional;
 
 @Entity
 public class Doacao {
@@ -12,12 +13,11 @@ public class Doacao {
     private Usuario doador;
     @OneToOne
     private Usuario receptor;
-    @OneToOne
+    @OneToOne(optional = false, cascade = CascadeType.ALL)
     private Endereco endereco;
     private boolean disponivel;
-    private String produto;
-    private String descricao;
-    
+    @OneToOne(optional = false, cascade = CascadeType.ALL)
+    private Item item;
 
     public Long getId() {
         return id;
@@ -42,7 +42,7 @@ public class Doacao {
     public void setReceptor(Usuario receptor) {
         this.receptor = receptor;
     }
-    
+
     public Endereco getEndereco() {
         return endereco;
     }
@@ -59,37 +59,29 @@ public class Doacao {
         this.disponivel = disponivel;
     }
 
-    public String getProduto() {
-        return produto;
+    public Item getItem() {
+        return item;
     }
 
-    public void setProduto(String produto) {
-        this.produto = produto;
+    public void setItem(Item item) {
+        this.item = item;
     }
 
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public Doacao(Usuario doador, Usuario receptor, Endereco endereco, boolean disponivel, Item item) {
+        this.doador = doador;
+        this.receptor = receptor;
+        this.endereco = endereco;
+        this.disponivel = disponivel;
+        this.item = item;
     }
 
     public Doacao() {
     }
 
-    public Doacao(Usuario doador, Usuario receptor, Endereco endereco, boolean disponivel) {
+    public Doacao(Usuario doador, Endereco endereco, Item item) {
         this.doador = doador;
-        this.receptor = receptor;
         this.endereco = endereco;
-        this.disponivel = disponivel;
-    }
-
-    public Doacao(Usuario doador, String produto, String descricao, Endereco endereco, boolean disponivel) {
-        this.doador = doador;
-        this.produto = produto;
-        this.descricao = descricao;
-        this.endereco = endereco;
-        this.disponivel = disponivel;
+        this.disponivel = true;
+        this.item = item;
     }
 }

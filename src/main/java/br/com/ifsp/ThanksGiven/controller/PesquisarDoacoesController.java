@@ -20,6 +20,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
+import static br.com.ifsp.ThanksGiven.ThanksGivenApplication.stageManager;
+
 @Controller
 public class PesquisarDoacoesController {
 
@@ -67,8 +69,7 @@ public class PesquisarDoacoesController {
 
     @FXML
     void clickIrPaneAdicionarDoacoes(MouseEvent event) {
-    	//colocar o fxml que o gui vai fazer
-    	//stageManager.switchScene(FxmlView.);
+    	stageManager.switchScene(FxmlView.ADDPRODUTO);
     }
 
     @FXML
@@ -79,12 +80,12 @@ public class PesquisarDoacoesController {
 
     @FXML
     void clickIrPaneMinhasDoacoes(MouseEvent event) {
-    	ThanksGivenApplication.stageManager.switchScene(FxmlView.MINHASDOACOES);
+    	stageManager.switchScene(FxmlView.MINHASDOACOES);
     }
 
     @FXML
     void clickSairConta(MouseEvent event) {
-    	ThanksGivenApplication.stageManager.switchScene(FxmlView.LOGIN);
+    	stageManager.switchScene(FxmlView.LOGIN);
     }
 
     @FXML
@@ -98,7 +99,7 @@ public class PesquisarDoacoesController {
         assert tableViewResultadoPesquisa != null : "fx:id=\"tableViewResultadoPesquisa\" was not injected: check your FXML file 'PesquisarDoacoesView.fxml'.";
         assert textFieldPesquisa != null : "fx:id=\"textFieldPesquisa\" was not injected: check your FXML file 'PesquisarDoacoesView.fxml'.";
         if(Session.getSession().getUsuario() == null)
-            ThanksGivenApplication.stageManager.switchScene(FxmlView.LOGIN);
+            stageManager.switchScene(FxmlView.LOGIN);
         tableViewResultadoPesquisa.setItems(FXCollections.observableArrayList(doacaoService.getDoacoesAtivas()));
 
     }

@@ -9,7 +9,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="paneMinhasDoacoes" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-border-color:#ffffff&#10;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.ifsp.ThanksGiven.controller.MinhasDoacoesController">
+<AnchorPane id="AnchorPane" fx:id="paneMinhasDoacoes" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.202-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.ifsp.ThanksGiven.controller.MinhasDoacoesController">
   <children>
     <Label layoutX="40.0" layoutY="47.0" prefHeight="72.0" prefWidth="461.0" text="Minhas Doações:">
       <font>
