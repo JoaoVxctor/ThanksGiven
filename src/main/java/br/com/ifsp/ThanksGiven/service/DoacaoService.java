@@ -1,25 +1,33 @@
 package br.com.ifsp.ThanksGiven.service;
 
 import br.com.ifsp.ThanksGiven.models.Doacao;
+import br.com.ifsp.ThanksGiven.models.Item;
 import br.com.ifsp.ThanksGiven.repository.DoacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class DoacaoService {
-    private DoacaoRepository doacaoRepository;
 
+    private DoacaoRepository doacaoRepository;
     @Autowired
     public DoacaoService(DoacaoRepository doacaoRepository) {
         this.doacaoRepository = doacaoRepository;
     }
 
-    public List<Doacao> getDoacoesAtivas(){
-        return doacaoRepository.findAllByReceptorIsNullAndDisponivelIsTrue();
+    public List<Item> getDoacoesAtivas(){
+        List<Item> itens = new ArrayList<>();
+        doacaoRepository.findAllByReceptorIsNullAndDisponivelIsTrue().forEach(doacao -> {
+             itens.add(doacao.getItem());
+         });
+        return itens;
     }
 
+    @Transactional
     public Doacao cadastraDoacao(Doacao doacao) throws NullPointerException {
         if (doacao == null)
             throw new NullPointerException();
@@ -40,7 +48,7 @@ public class DoacaoService {
         if (doacao == null)
             throw new NullPointerException();
         Doacao desativar = this.buscaDoacao(doacao);
-        desativar.setDisponivel(False);
+        desativar.setDisponivel(false);
         return doacaoRepository.save(desativar);
     }
 
@@ -48,7 +56,7 @@ public class DoacaoService {
         if (doacao == null)
             throw new NullPointerException();
         Doacao ativar = this.buscaDoacao(doacao);
-        ativar.setDisponivel(True);
+        ativar.setDisponivel(true);
         return doacaoRepository.save(ativar);
     }
 

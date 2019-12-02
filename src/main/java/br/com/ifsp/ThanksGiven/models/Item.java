@@ -13,6 +13,25 @@ public class Item {
     private Long id;
     private String titulo;
     private String descricao;
+    private String pathImagem;
+
+
+    public Item(String titulo, String descricao, String pathImagem) {
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.pathImagem = pathImagem;
+    }
+
+    public Item() {
+    }
+
+    public String getPathImagem() {
+        return pathImagem;
+    }
+
+    public void setPathImagem(String pathImagem) {
+        this.pathImagem = pathImagem;
+    }
 
     public Item(String titulo, String descricao) {
         this.titulo = titulo;

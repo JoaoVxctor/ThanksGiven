@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface DoacaoRepository extends JpaRepository <Doacao,Long> {
     public List<Doacao> findAllByReceptorIsNullAndDisponivelIsTrue();
-    public Doacao findUsuarioById (Long id);
+    public Doacao findDoacaoById(Long id);
 }

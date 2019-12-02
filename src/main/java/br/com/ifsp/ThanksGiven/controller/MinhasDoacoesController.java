@@ -47,6 +47,9 @@ public class MinhasDoacoesController {
     }
 
     @FXML
+    void doacaoClick(){}
+
+    @FXML
     void initialize() {
         assert buttonSairConta != null : "fx:id=\"buttonSairConta\" was not injected: check your FXML file 'MinhasDoacoesView.fxml'.";
         assert labelVoltarPesquisarDoacoes != null : "fx:id=\"labelVoltarPesquisarDoacoes\" was not injected: check your FXML file 'MinhasDoacoesView.fxml'.";

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 public final class Session {
     private static Session session;
-    private Usuario usuario;
+    private static Usuario usuario;
 
     public Session() {}
 
@@ -16,11 +16,11 @@ public final class Session {
         return session;
     }
 
-    public Usuario getUsuario() {
+    public static Usuario getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public static void setUsuario(Usuario param) {
+        usuario = param;
     }
 }

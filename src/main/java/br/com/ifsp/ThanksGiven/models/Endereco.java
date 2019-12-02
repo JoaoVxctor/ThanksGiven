@@ -12,22 +12,19 @@ public class Endereco {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String rua;
-    private String logradouro;
+    private String municipio;
+    private String estado;
     private String cep;
     private String numero;
     private String completmento;
-    
-    public Endereco (String rua) //TEMPORARIO, PRECISA COLOCAR MAIS CAMPOS NO CADASTRO (TALVEZ UMA NOVA TELA)
-    {
-        this.rua = rua;
+
+
+    public Long getId() {
+        return id;
     }
 
-    public Endereco(String rua, String logradouro, String cep, String numero, String completmento) {
-        this.rua = rua;
-        this.logradouro = logradouro;
-        this.cep = cep;
-        this.numero = numero;
-        this.completmento = completmento;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getRua() {
@@ -38,12 +35,20 @@ public class Endereco {
         this.rua = rua;
     }
 
-    public String getLogradouro() {
-        return logradouro;
+    public String getMunicipio() {
+        return municipio;
     }
 
-    public void setLogradouro(String logradouro) {
-        this.logradouro = logradouro;
+    public void setMunicipio(String municipio) {
+        this.municipio = municipio;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     public String getCep() {
@@ -68,5 +73,17 @@ public class Endereco {
 
     public void setCompletmento(String completmento) {
         this.completmento = completmento;
+    }
+
+    public Endereco(String rua, String municipio, String estado, String cep, String numero, String completmento) {
+        this.rua = rua;
+        this.municipio = municipio;
+        this.estado = estado;
+        this.cep = cep;
+        this.numero = numero;
+        this.completmento = completmento;
+    }
+
+    public Endereco() {
     }
 }
