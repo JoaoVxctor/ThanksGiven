@@ -10,6 +10,7 @@ import br.com.ifsp.ThanksGiven.view.FxmlView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -35,16 +36,24 @@ public class MinhasDoacoesController {
     @FXML
     private TableView<?> tableViewMinhasDoacoes;
 
+    private TableColumn produtoCol;
+    @FXML
+    private TableColumn estadoCol;
+    @FXML
+    private TableColumn enderecoCol;
+
 
     @FXML
     void clickSairConta(MouseEvent event) {
     	ThanksGivenApplication.stageManager.switchScene(FxmlView.LOGIN);
     }
 
-    @FXML
-    void clickVoltarPesquisarDoacoesPane(MouseEvent event) {
-    	ThanksGivenApplication.stageManager.switchScene(FxmlView.PESQUISARDOACOES);
-    }
+	
+	@FXML 
+	void clickVoltarPesquisarDoacoesPane(MouseEvent event) {
+		ThanksGivenApplication.stageManager.switchScene(FxmlView.PESQUISARDOACOES);
+	}
+	
 
     @FXML
     void doacaoClick(){}
