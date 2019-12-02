@@ -3,8 +3,12 @@ package br.com.ifsp.ThanksGiven.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import br.com.ifsp.ThanksGiven.ThanksGivenApplication;
 import br.com.ifsp.ThanksGiven.config.Session;
+import br.com.ifsp.ThanksGiven.exception.DoacaoException;
+import br.com.ifsp.ThanksGiven.exception.UsuarioException;
 import br.com.ifsp.ThanksGiven.models.Item;
+import br.com.ifsp.ThanksGiven.models.Usuario;
 import br.com.ifsp.ThanksGiven.service.DoacaoService;
 import javafx.collections.FXCollections;
 import javafx.scene.control.TableColumn;
@@ -74,6 +78,13 @@ public class PesquisarDoacoesController {
 
     @FXML
     void clickBuscarDoacoes(MouseEvent event) {
+		/*
+		 * try { Usuario usuario = usuarioService .cadastraUsuario(new
+		 * Usuario(textFieldCadastroNome.getText(), textFieldCadastroEmail.getText(),
+		 * passwordFieldCadastro.getText(), textFieldCadastroLogin.getText()));
+		 * Session.getSession().setUsuario(usuario); } catch (DoacaoException e) {
+		 * System.out.println(e); }
+		 */
     }
 
     @FXML
@@ -83,7 +94,7 @@ public class PesquisarDoacoesController {
 
     @FXML
     void clickIrPaneMinhasAquisicoes(MouseEvent event) {
-    	//stageManager.switchScene(FxmlView.);
+    	stageManager.switchScene(FxmlView.AQUISICOES);
     }
 
     @FXML

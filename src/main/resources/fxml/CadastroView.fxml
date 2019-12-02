@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="paneCadastro" prefHeight="400.0" prefWidth="600.0" style="-fx-border-color: white" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.ifsp.ThanksGiven.controller.CadastroController">
+<Pane fx:id="paneCadastro" prefHeight="463.0" prefWidth="639.0" style="-fx-border-color: white" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="br.com.ifsp.ThanksGiven.controller.CadastroController">
   <children>
     <Label layoutX="37.0" layoutY="18.0" prefHeight="71.9609375" prefWidth="313.0" text="Cadastro">
       <font>
@@ -39,6 +44,6 @@
         <Font name="Franklin Gothic Medium" size="25.0" />
       </font>
     </Label>
-      <PasswordField fx:id="passwordFieldCadastro" layoutX="115.0" layoutY="224.0" prefHeight="25.0" prefWidth="325.0" style="-fx-border-color: #58bef1;" />
+    <PasswordField fx:id="passwordFieldCadastro" layoutX="115.0" layoutY="224.0" prefHeight="25.0" prefWidth="325.0" style="-fx-border-color: #58bef1;" />
   </children>
 </Pane>

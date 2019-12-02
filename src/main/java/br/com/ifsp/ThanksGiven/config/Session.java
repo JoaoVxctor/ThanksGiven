@@ -1,5 +1,6 @@
 package br.com.ifsp.ThanksGiven.config;
 
+import br.com.ifsp.ThanksGiven.models.Doacao;
 import br.com.ifsp.ThanksGiven.models.Usuario;
 import org.springframework.stereotype.Component;
 
@@ -7,6 +8,8 @@ import org.springframework.stereotype.Component;
 public final class Session {
     private static Session session;
     private static Usuario usuario;
+    private static Doacao doacao;
+    
 
     public Session() {}
 
@@ -22,5 +25,9 @@ public final class Session {
 
     public static void setUsuario(Usuario param) {
         usuario = param;
+    }
+    
+    public static Doacao getDoacao() {
+    	return doacao;
     }
 }
