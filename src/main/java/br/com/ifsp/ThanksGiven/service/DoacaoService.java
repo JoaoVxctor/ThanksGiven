@@ -60,6 +60,10 @@ public class DoacaoService {
         return doacaoRepository.save(ativar);
     }
 
+    public Doacao buscaDoacaoPorItem(Item item){
+        return doacaoRepository.findDoacaoByItem(item);
+    }
+
     /*
     public boolean requereDoacao(Doacao doacao) throws NullPointerException {
         if (doacao == null)
