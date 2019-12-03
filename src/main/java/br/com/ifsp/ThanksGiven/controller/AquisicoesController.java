@@ -53,11 +53,6 @@ public class AquisicoesController {
 
     @FXML
     void initialize() {
-        assert buttonSairConta != null : "fx:id=\"buttonSairConta\" was not injected: check your FXML file 'AquisitionView.fxml'.";
-        assert buttonSairConta1 != null : "fx:id=\"buttonSairConta1\" was not injected: check your FXML file 'AquisitionView.fxml'.";
-        assert labelVoltarPesquisarDoacoes != null : "fx:id=\"labelVoltarPesquisarDoacoes\" was not injected: check your FXML file 'AquisitionView.fxml'.";
-        assert paneMinhasAquisicoes != null : "fx:id=\"paneMinhasAquisicoes\" was not injected: check your FXML file 'AquisitionView.fxml'.";
-        assert tableViewMinhasDoacoes != null : "fx:id=\"tableViewMinhasDoacoes\" was not injected: check your FXML file 'AquisitionView.fxml'.";
 
 
     }

@@ -47,9 +47,9 @@ public class PesquisarDoacoesController {
     @FXML
     private TextField textFieldPesquisa;
     @FXML
-    private TableColumn<Item, String> doadorCol;
+    private TableColumn<Usuario, String> doadorCol;
     @FXML
-    private TableColumn<Usuario, String> nomeCol;
+    private TableColumn<Item, String> nomeCol;
     @FXML
     private TableColumn<Item, String> descricaoCol;
 
@@ -114,7 +114,7 @@ public class PesquisarDoacoesController {
         nomeCol.setCellValueFactory(new PropertyValueFactory<>("titulo"));
         doadorCol.setCellValueFactory(new PropertyValueFactory<>("nomeCompleto"));
 
-        tableViewResultadoPesquisa.setItems(FXCollections.observableArrayList(doacaoService.getDoacoesAtivas()));
+        tableViewResultadoPesquisa.setItems(FXCollections.observableArrayList(doacaoService.getDoacoesAtivas(Session.getUsuario())));
 
 
     }

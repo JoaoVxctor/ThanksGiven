@@ -33,9 +33,9 @@
         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
       </columnResizePolicy>
       <columns>
-        <TableColumn minWidth="0.0" prefWidth="25.0" text="Produto" />
-        <TableColumn prefWidth="153.0" text="Estado" />
-        <TableColumn prefWidth="98.40001678466797" text="End de Entrega" />
+        <TableColumn fx:id= "produtoCol" minWidth="0.0" prefWidth="25.0" text="Produto" />
+        <TableColumn fx:id= "receptorCol" prefWidth="98.40001678466797" text="Receptor" />
+        <TableColumn fx:id= "estadoCol" prefWidth="153.0" text="Estado" />
       </columns>
     </TableView>
     <Label fx:id="labelVoltarPesquisarDoacoes" layoutX="14.0" layoutY="-1.0" minHeight="17.999908447265625" onMouseClicked="#clickVoltarPesquisarDoacoesPane" prefHeight="48.0" prefWidth="62.0000084472631" text="&lt;" textFill="#58bef1">

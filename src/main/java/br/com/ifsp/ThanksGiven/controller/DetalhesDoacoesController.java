@@ -6,7 +6,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import br.com.ifsp.ThanksGiven.config.Session;
+import br.com.ifsp.ThanksGiven.service.DoacaoService;
 import javafx.scene.image.Image;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 
@@ -26,6 +28,8 @@ import static br.com.ifsp.ThanksGiven.ThanksGivenApplication.stageManager;
 @Controller
 public class DetalhesDoacoesController {
 
+    @Autowired
+    private DoacaoService doacaoService;
     @FXML
     private ResourceBundle resources;
 
@@ -50,6 +54,10 @@ public class DetalhesDoacoesController {
     @FXML
     private AnchorPane paneDetalhesDoacoes;
 
+    @FXML
+    private Button solicitarDoacaoButton;
+
+
 
     @FXML
     void clickSairConta(MouseEvent event) {
@@ -68,13 +76,20 @@ public class DetalhesDoacoesController {
     }
 
     @FXML
+    void clickSolicitarDoacao(){
+        if(Session.getDoacao().isDisponivel()){
+            doacaoService.solicitarDoacao(Session.getDoacao(),Session.getUsuario());
+            stageManager.switchScene(FxmlView.AQUISICOES);
+        }else{
+            solicitarDoacaoButton.setStyle("-fx-background-color: #e74c3c; -fx-border-color: #e74c3c; -fx-border-radius: 5px");
+            solicitarDoacaoButton.setText("INDISPONIVEL!");
+        }
+    }
+    @FXML
     void initialize() throws IOException {
-        assert buttonSairConta != null : "fx:id=\"buttonSairConta\" was not injected: check your FXML file 'VisualizarDoacaoView.fxml'.";
-        assert imageViewImagemProduto != null : "fx:id=\"imageViewImagemProduto\" was not injected: check your FXML file 'VisualizarDoacaoView.fxml'.";
-        assert labelDescricaoDoProduto != null : "fx:id=\"labelDescricaoDoProduto\" was not injected: check your FXML file 'VisualizarDoacaoView.fxml'.";
-        assert labelNomeDoProduto != null : "fx:id=\"labelNomeDoProduto\" was not injected: check your FXML file 'VisualizarDoacaoView.fxml'.";
-        assert labelVoltarPesquisarDoacoes != null : "fx:id=\"labelVoltarPesquisarDoacoes\" was not injected: check your FXML file 'VisualizarDoacaoView.fxml'.";
-        assert paneDetalhesDoacoes != null : "fx:id=\"paneDetalhesDoacoes\" was not injected: check your FXML file 'VisualizarDoacaoView.fxml'.";
+
+        if (Session.getUsuario() == Session.getDoacao().getDoador())
+            solicitarDoacaoButton.setVisible(false);
 
         String pathImagem = Session.getDoacao().getItem().getPathImagem();
         Image image = new Image("file:"+pathImagem,true);

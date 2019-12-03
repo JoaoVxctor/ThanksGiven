@@ -40,7 +40,7 @@
         <Font name="Franklin Gothic Medium" size="16.0" />
       </font>
     </Label>
-    <Button fx:id="solicitarDoacaoButton" font="$contornoCancelar" layoutX="500.0" layoutY="417.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" style="-fx-background-color: #58bef1; -fx-border-color: #58bef1; -fx-border-radius: 5px;" text="Solicitar Doação" textFill="WHITE" />
+    <Button fx:id="solicitarDoacaoButton" onMouseClicked="#clickSolicitarDoacao" font="$contornoCancelar" layoutX="500.0" layoutY="417.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" style="-fx-background-color: #58bef1; -fx-border-color: #58bef1; -fx-border-radius: 5px;" text="Solicitar Doação" textFill="WHITE" />
     <ImageView fx:id="imageViewImagemProduto" cacheHint="SPEED" fitHeight="260.0" fitWidth="251.0" layoutX="359.0" layoutY="106.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../../Downloads/smoll.png" />

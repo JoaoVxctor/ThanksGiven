@@ -2,6 +2,8 @@ package br.com.ifsp.ThanksGiven.service;
 
 import br.com.ifsp.ThanksGiven.models.Doacao;
 import br.com.ifsp.ThanksGiven.models.Item;
+import br.com.ifsp.ThanksGiven.models.DoacaoDTO;
+import br.com.ifsp.ThanksGiven.models.Usuario;
 import br.com.ifsp.ThanksGiven.repository.DoacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,16 +16,15 @@ import java.util.List;
 public class DoacaoService {
 
     private DoacaoRepository doacaoRepository;
+
     @Autowired
     public DoacaoService(DoacaoRepository doacaoRepository) {
         this.doacaoRepository = doacaoRepository;
     }
 
-    public List<Item> getDoacoesAtivas(){
+    public List<Item> getDoacoesAtivas(Usuario usuario) {
         List<Item> itens = new ArrayList<>();
-        doacaoRepository.findAllByReceptorIsNullAndDisponivelIsTrue().forEach(doacao -> {
-             itens.add(doacao.getItem());
-         });
+        doacaoRepository.findAllByReceptorIsNullAndDisponivelIsTrueAndDoadorIsNot(usuario).forEach(doacao -> itens.add(doacao.getItem()));
         return itens;
     }
 
@@ -38,12 +39,12 @@ public class DoacaoService {
     public Doacao buscaDoacao(Doacao doacao) throws NullPointerException {
         if (doacao == null)
             throw new NullPointerException();
-    
+
         Doacao retorno = doacaoRepository.findDoacaoById(doacao.getId());
 
         return retorno;
     }
-    
+
     public Doacao desativaDoacao(Doacao doacao) throws NullPointerException {
         if (doacao == null)
             throw new NullPointerException();
@@ -60,18 +61,21 @@ public class DoacaoService {
         return doacaoRepository.save(ativar);
     }
 
-    public Doacao buscaDoacaoPorItem(Item item){
+    public Doacao buscaDoacaoPorItem(Item item) {
         return doacaoRepository.findDoacaoByItem(item);
     }
 
-    /*
-    public boolean requereDoacao(Doacao doacao) throws NullPointerException {
-        if (doacao == null)
-            throw new NullPointerException();
-        this.desativaDoacao(doacao);
+    public List<DoacaoDTO> buscaMinhasDoacoes(Usuario usuario) {
+        List<Doacao> allByDoador = doacaoRepository.findAllByDoador(usuario);
+        List<DoacaoDTO> doacaoDTOS = new ArrayList<>();
 
-        return doacaoRepository.requerirDoacao(doacao);
+        allByDoador.forEach(x-> doacaoDTOS.add(new DoacaoDTO(x)));
+        return doacaoDTOS;
     }
-    */
+
+    public Doacao solicitarDoacao(Doacao doacao, Usuario usuario){
+        doacao.setReceptor(usuario);
+        return doacaoRepository.save(doacao);
+    }
 
 }
