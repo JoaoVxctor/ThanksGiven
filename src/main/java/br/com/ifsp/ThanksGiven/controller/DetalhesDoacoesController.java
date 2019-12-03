@@ -57,8 +57,6 @@ public class DetalhesDoacoesController {
     @FXML
     private Button solicitarDoacaoButton;
 
-
-
     @FXML
     void clickSairConta(MouseEvent event) {
         Session.setUsuario(null);
@@ -86,7 +84,7 @@ public class DetalhesDoacoesController {
         }
     }
     @FXML
-    void initialize() throws IOException {
+    void initialize() {
 
         if (Session.getUsuario() == Session.getDoacao().getDoador())
             solicitarDoacaoButton.setVisible(false);
