@@ -101,7 +101,8 @@ public class AdicionarDoacoesController {
                             ),
                             new Item(nomeTextField.getText(),
                                     descricaoTextField.getText(),
-                                    imagem.getAbsolutePath()
+                                    imagem.getAbsolutePath(),
+                                    Session.getSession().getUsuario()
                             )
                     )
             );

@@ -5,6 +5,8 @@ import static br.com.ifsp.ThanksGiven.ThanksGivenApplication.stageManager;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import br.com.ifsp.ThanksGiven.models.DoacaoDTO;
+import javafx.scene.control.TableColumn;
 import org.springframework.stereotype.Controller;
 
 import br.com.ifsp.ThanksGiven.view.FxmlView;
@@ -34,7 +36,14 @@ public class AquisicoesController {
     private AnchorPane paneMinhasAquisicoes;
 
     @FXML
-    private TableView<?> tableViewMinhasDoacoes;
+    private TableView<DoacaoDTO> tableViewMinhasAquisicoes;
+
+    @FXML
+    private TableColumn<DoacaoDTO, String> doadorCol;
+    @FXML
+    private TableColumn<DoacaoDTO, String> produtoCol;
+    @FXML
+    private TableColumn<DoacaoDTO, Boolean> estadoCol;
 
 
     @FXML
@@ -53,11 +62,6 @@ public class AquisicoesController {
 
     @FXML
     void initialize() {
-        assert buttonSairConta != null : "fx:id=\"buttonSairConta\" was not injected: check your FXML file 'AquisitionView.fxml'.";
-        assert buttonSairConta1 != null : "fx:id=\"buttonSairConta1\" was not injected: check your FXML file 'AquisitionView.fxml'.";
-        assert labelVoltarPesquisarDoacoes != null : "fx:id=\"labelVoltarPesquisarDoacoes\" was not injected: check your FXML file 'AquisitionView.fxml'.";
-        assert paneMinhasAquisicoes != null : "fx:id=\"paneMinhasAquisicoes\" was not injected: check your FXML file 'AquisitionView.fxml'.";
-        assert tableViewMinhasDoacoes != null : "fx:id=\"tableViewMinhasDoacoes\" was not injected: check your FXML file 'AquisitionView.fxml'.";
 
 
     }

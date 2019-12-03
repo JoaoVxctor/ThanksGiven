@@ -1,10 +1,7 @@
 package br.com.ifsp.ThanksGiven.models;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Item {
@@ -14,6 +11,10 @@ public class Item {
     private String titulo;
     private String descricao;
     private String pathImagem;
+    @OneToOne
+    private Usuario doador;
+    @OneToOne
+    private Doacao doacao;
 
 
     public Item(String titulo, String descricao, String pathImagem) {
@@ -38,6 +39,13 @@ public class Item {
         this.descricao = descricao;
     }
 
+    public Item(String titulo, String descricao, String pathImagem, Usuario doador) {
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.pathImagem = pathImagem;
+        this.doador = doador;
+    }
+
     public Long getId() {
         return id;
     }
@@ -60,5 +68,41 @@ public class Item {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public Usuario getDoador() {
+        return doador;
+    }
+
+    public void setDoador(Usuario doador) {
+        this.doador = doador;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id=" + id +
+                ", titulo='" + titulo + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", pathImagem='" + pathImagem + '\'' +
+                ", doador=" + doador +
+                ", doacao=" + doacao +
+                '}';
+    }
+
+    public Item(String titulo, String descricao, String pathImagem, Usuario doador, Doacao doacao) {
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.pathImagem = pathImagem;
+        this.doador = doador;
+        this.doacao = doacao;
+    }
+
+    public Doacao getDoacao() {
+        return doacao;
+    }
+
+    public void setDoacao(Doacao doacao) {
+        this.doacao = doacao;
     }
 }

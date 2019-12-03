@@ -3,6 +3,13 @@ package br.com.ifsp.ThanksGiven.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import br.com.ifsp.ThanksGiven.config.Session;
+import br.com.ifsp.ThanksGiven.models.DoacaoDTO;
+import br.com.ifsp.ThanksGiven.service.DoacaoService;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
+import javafx.scene.control.cell.PropertyValueFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import br.com.ifsp.ThanksGiven.ThanksGivenApplication;
@@ -15,8 +22,17 @@ import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
+import static br.com.ifsp.ThanksGiven.ThanksGivenApplication.stageManager;
+
 @Controller
 public class MinhasDoacoesController {
+
+    private DoacaoService doacaoService;
+
+    @Autowired
+    public MinhasDoacoesController(DoacaoService doacaoService) {
+        this.doacaoService = doacaoService;
+    }
 
     @FXML
     private ResourceBundle resources;
@@ -34,14 +50,14 @@ public class MinhasDoacoesController {
     private AnchorPane paneMinhasDoacoes;
 
     @FXML
-    private TableView<?> tableViewMinhasDoacoes;
+    private TableView<DoacaoDTO> tableViewMinhasDoacoes;
 
-    private TableColumn produtoCol;
     @FXML
-    private TableColumn estadoCol;
+    private TableColumn<DoacaoDTO, String> receptorCol;
     @FXML
-    private TableColumn enderecoCol;
-
+    private TableColumn<DoacaoDTO, String> produtoCol;
+    @FXML
+    private TableColumn<DoacaoDTO, Boolean> estadoCol;
 
     @FXML
     void clickSairConta(MouseEvent event) {
@@ -60,12 +76,14 @@ public class MinhasDoacoesController {
 
     @FXML
     void initialize() {
-        assert buttonSairConta != null : "fx:id=\"buttonSairConta\" was not injected: check your FXML file 'MinhasDoacoesView.fxml'.";
-        assert labelVoltarPesquisarDoacoes != null : "fx:id=\"labelVoltarPesquisarDoacoes\" was not injected: check your FXML file 'MinhasDoacoesView.fxml'.";
-        assert paneMinhasDoacoes != null : "fx:id=\"paneMinhasDoacoes\" was not injected: check your FXML file 'MinhasDoacoesView.fxml'.";
-        assert tableViewMinhasDoacoes != null : "fx:id=\"tableViewMinhasDoacoes\" was not injected: check your FXML file 'MinhasDoacoesView.fxml'.";
+        if (Session.getUsuario() == null)
+            stageManager.switchScene(FxmlView.LOGIN);
 
+        produtoCol.setCellValueFactory(new PropertyValueFactory<>("tituloDoacao"));
+        estadoCol.setCellValueFactory(new PropertyValueFactory<>("disponibilidade"));
+        receptorCol.setCellValueFactory(new PropertyValueFactory<>("receptorNome"));
 
+        tableViewMinhasDoacoes.setItems(FXCollections.observableArrayList(doacaoService.buscaMinhasDoacoes(Session.getUsuario())));
     }
 
 }

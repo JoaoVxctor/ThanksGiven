@@ -2,7 +2,6 @@ package br.com.ifsp.ThanksGiven.models;
 
 
 import javax.persistence.*;
-import java.util.Optional;
 
 @Entity
 public class Doacao {
@@ -15,7 +14,7 @@ public class Doacao {
     private Usuario receptor;
     @OneToOne(optional = false, cascade = CascadeType.ALL)
     private Endereco endereco;
-    private boolean disponivel;
+    private Boolean disponivel;
     @OneToOne(optional = false, cascade = CascadeType.ALL)
     private Item item;
 
@@ -51,11 +50,11 @@ public class Doacao {
         this.endereco = endereco;
     }
 
-    public boolean isDisponivel() {
+    public Boolean isDisponivel() {
         return disponivel;
     }
 
-    public void setDisponivel(boolean disponivel) {
+    public void setDisponivel(Boolean disponivel) {
         this.disponivel = disponivel;
     }
 

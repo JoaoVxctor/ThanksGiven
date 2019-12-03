@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="panePesquisarDoacoes" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="463.0" prefWidth="639.0" style="-fx-border-color: #ffffff; -fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.202-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.ifsp.ThanksGiven.controller.PesquisarDoacoesController">
+<AnchorPane id="AnchorPane" fx:id="panePesquisarDoacoes" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="463.0" prefWidth="639.0" style="-fx-border-color: #ffffff; -fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.ifsp.ThanksGiven.controller.PesquisarDoacoesController">
   <children>
     <Label layoutX="42.0" layoutY="42.0" prefHeight="72.0" prefWidth="461.0" text="Digite abaixo o que você procura:" textFill="#58bef1">
       <font>
@@ -21,9 +21,9 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
          <columns>
-            <TableColumn fx:id="nome" prefWidth="75.0" text="Nome" />
-            <TableColumn fx:id="descricao" prefWidth="75.0" text="Descricao" />
-            <TableColumn fx:id="doador" prefWidth="75.0" text="Doador" />
+            <TableColumn fx:id="nomeCol" prefWidth="75.0" text="Nome" />
+            <TableColumn fx:id="descricaoCol" prefWidth="75.0" text="Descricao" />
+            <TableColumn fx:id="doadorCol" prefWidth="75.0" style="fx-border-color: #58bef1;" text="Doador" />
          </columns></TableView>
     <Button fx:id="buttonBuscarDoacoes" layoutX="550.0" layoutY="116.0" minWidth="28.0" mnemonicParsing="false" onMouseClicked="#clickBuscarDoacoes" prefHeight="23.0" prefWidth="62.0" style="-fx-background-color: #58bef1; -fx-border-color: #58bef1; -fx-border-radius: 5px;" text="Buscar" textFill="WHITE" AnchorPane.rightAnchor="27.0">
       <font>

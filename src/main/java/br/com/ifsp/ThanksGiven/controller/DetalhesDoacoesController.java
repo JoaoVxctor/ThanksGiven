@@ -1,11 +1,17 @@
 package br.com.ifsp.ThanksGiven.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import br.com.ifsp.ThanksGiven.config.Session;
+import br.com.ifsp.ThanksGiven.service.DoacaoService;
+import javafx.scene.image.Image;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import br.com.ifsp.ThanksGiven.ThanksGivenApplication;
+
 import br.com.ifsp.ThanksGiven.view.FxmlView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -14,9 +20,16 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
+import javax.imageio.ImageIO;
+
+import static br.com.ifsp.ThanksGiven.ThanksGivenApplication.stageManager;
+
+
 @Controller
 public class DetalhesDoacoesController {
 
+    @Autowired
+    private DoacaoService doacaoService;
     @FXML
     private ResourceBundle resources;
 
@@ -41,27 +54,47 @@ public class DetalhesDoacoesController {
     @FXML
     private AnchorPane paneDetalhesDoacoes;
 
+    @FXML
+    private Button solicitarDoacaoButton;
 
     @FXML
     void clickSairConta(MouseEvent event) {
-    	ThanksGivenApplication.stageManager.switchScene(FxmlView.LOGIN);
+        Session.setUsuario(null);
+    	stageManager.switchScene(FxmlView.LOGIN);
     }
 
     @FXML
     void clickVoltarPesquisarDoacoesPane(MouseEvent event) {
-    	ThanksGivenApplication.stageManager.switchScene(FxmlView.PESQUISARDOACOES);
+    	stageManager.switchScene(FxmlView.PESQUISARDOACOES);
     }
 
     @FXML
+    void clickCancelarDoacao(){
+        stageManager.switchScene(FxmlView.PESQUISARDOACOES);
+    }
+
+    @FXML
+    void clickSolicitarDoacao(){
+        if(Session.getDoacao().isDisponivel()){
+            doacaoService.solicitarDoacao(Session.getDoacao(),Session.getUsuario());
+            stageManager.switchScene(FxmlView.AQUISICOES);
+        }else{
+            solicitarDoacaoButton.setStyle("-fx-background-color: #e74c3c; -fx-border-color: #e74c3c; -fx-border-radius: 5px");
+            solicitarDoacaoButton.setText("INDISPONIVEL!");
+        }
+    }
+    @FXML
     void initialize() {
-        assert buttonSairConta != null : "fx:id=\"buttonSairConta\" was not injected: check your FXML file 'VisualizarDoacaoView.fxml'.";
-        assert imageViewImagemProduto != null : "fx:id=\"imageViewImagemProduto\" was not injected: check your FXML file 'VisualizarDoacaoView.fxml'.";
-        assert labelDescricaoDoProduto != null : "fx:id=\"labelDescricaoDoProduto\" was not injected: check your FXML file 'VisualizarDoacaoView.fxml'.";
-        assert labelNomeDoProduto != null : "fx:id=\"labelNomeDoProduto\" was not injected: check your FXML file 'VisualizarDoacaoView.fxml'.";
-        assert labelVoltarPesquisarDoacoes != null : "fx:id=\"labelVoltarPesquisarDoacoes\" was not injected: check your FXML file 'VisualizarDoacaoView.fxml'.";
-        assert paneDetalhesDoacoes != null : "fx:id=\"paneDetalhesDoacoes\" was not injected: check your FXML file 'VisualizarDoacaoView.fxml'.";
 
+        if (Session.getUsuario() == Session.getDoacao().getDoador())
+            solicitarDoacaoButton.setVisible(false);
 
+        String pathImagem = Session.getDoacao().getItem().getPathImagem();
+        Image image = new Image("file:"+pathImagem,true);
+
+        labelDescricaoDoProduto.setText(Session.getDoacao().getItem().getDescricao());
+        labelNomeDoProduto.setText(Session.getDoacao().getItem().getTitulo());
+        imageViewImagemProduto.setImage(image);
     }
 
 }
