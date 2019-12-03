@@ -8,6 +8,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
+
 <AnchorPane id="AnchorPane" fx:id="paneDetalhesDoacoes" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="463.0" prefWidth="639.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.ifsp.ThanksGiven.controller.DetalhesDoacoesController">
   <children>
     <Button fx:id="cancelarButton" layoutX="373.0" layoutY="417.0" mnemonicParsing="false" onMouseClicked="#clickCancelarDoacao" prefHeight="20.4521484375" prefWidth="111.0" style="-fx-background-color: #e74c3c; -fx-border-color: #e74c3c; -fx-border-radius: 5px;" text="Cancelar" textFill="WHITE">
@@ -28,10 +29,6 @@
         <Font name="Franklin Gothic Medium" size="25.0" />
       </font>
     </Label>
-    <ImageView fx:id="imageViewImagemProduto" blendMode="COLOR_DODGE" fitHeight="153.0" fitWidth="204.0" layoutX="382.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color:black&#10;&#10;">
-         <image>
-            <Image url="@../Downloads/salgrosso.jpg" />
-         </image></ImageView>
     <Label fx:id="labelNomeDoProduto" layoutX="42.0" layoutY="96.0" prefWidth="228.0" text="Nome do produto ">
       <font>
         <Font name="Franklin Gothic Medium" size="18.0" />
@@ -44,5 +41,10 @@
       </font>
     </Label>
     <Button fx:id="solicitarDoacaoButton" font="$contornoCancelar" layoutX="500.0" layoutY="417.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" style="-fx-background-color: #58bef1; -fx-border-color: #58bef1; -fx-border-radius: 5px;" text="Solicitar Doação" textFill="WHITE" />
+    <ImageView fx:id="imageViewImagemProduto" cacheHint="SPEED" fitHeight="260.0" fitWidth="251.0" layoutX="359.0" layoutY="106.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Downloads/smoll.png" />
+         </image>
+      </ImageView>
   </children>
 </AnchorPane>
