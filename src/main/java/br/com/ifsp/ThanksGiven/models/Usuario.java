@@ -14,6 +14,7 @@ public class Usuario {
     private String nomeCompleto;
     private String email;
     private String senha;
+    private String login;
 
     public Usuario(String nomeCompleto, String email, String senha) {
         this.nomeCompleto = nomeCompleto;
@@ -31,8 +32,8 @@ public class Usuario {
                 '}';
     }
 
-    public Usuario(String email, String senha) {
-        this.email = email;
+    public Usuario(String login, String senha) {
+        this.login= login;
         this.senha = senha;
     }
 
@@ -69,5 +70,20 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public Usuario(String nomeCompleto, String email, String senha, String login) {
+        this.nomeCompleto = nomeCompleto;
+        this.email = email;
+        this.senha = senha;
+        this.login = login;
     }
 }

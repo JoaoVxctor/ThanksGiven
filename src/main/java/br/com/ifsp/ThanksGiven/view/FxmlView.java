@@ -68,7 +68,30 @@ public enum FxmlView {
 		public String getFxmlFile() {
 			return "/fxml/PesquisarDoacoesView.fxml";
 		}
+	},
+	ADDPRODUTO {
+		@Override
+		public String getTitle() {
+			return getStringFromResourceBundle("user.title");
+		}
+
+		@Override
+		public String getFxmlFile() {
+			return "/fxml/AddDonationView.fxml";
+		}
+	},
+	AQUISICOES {
+		@Override
+		public String getTitle() {
+			return getStringFromResourceBundle("user.title");
+		}
+
+		@Override
+		public String getFxmlFile() {
+			return "/fxml/AquisitionView.fxml";
+		}
 	};
+	
 
 	public abstract String getTitle();
 

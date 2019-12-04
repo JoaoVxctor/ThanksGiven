@@ -12,14 +12,11 @@ public class Doacao {
     private Usuario doador;
     @OneToOne
     private Usuario receptor;
-    @OneToOne
+    @OneToOne(optional = false, cascade = CascadeType.ALL)
     private Endereco endereco;
-
-    public Doacao(Usuario doador, Usuario receptor, Endereco endereco) {
-        this.doador = doador;
-        this.receptor = receptor;
-        this.endereco = endereco;
-    }
+    private Boolean disponivel;
+    @OneToOne(optional = false, cascade = CascadeType.ALL)
+    private Item item;
 
     public Long getId() {
         return id;
@@ -51,5 +48,39 @@ public class Doacao {
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
+    }
+
+    public Boolean isDisponivel() {
+        return disponivel;
+    }
+
+    public void setDisponivel(Boolean disponivel) {
+        this.disponivel = disponivel;
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
+
+    public Doacao(Usuario doador, Usuario receptor, Endereco endereco, boolean disponivel, Item item) {
+        this.doador = doador;
+        this.receptor = receptor;
+        this.endereco = endereco;
+        this.disponivel = disponivel;
+        this.item = item;
+    }
+
+    public Doacao() {
+    }
+
+    public Doacao(Usuario doador, Endereco endereco, Item item) {
+        this.doador = doador;
+        this.endereco = endereco;
+        this.disponivel = true;
+        this.item = item;
     }
 }

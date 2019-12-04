@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="paneDetalhesDoacoes" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-border-color:#ffffff&#10;&#10;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="br.com.ifsp.ThanksGiven.controller.DetalhesDoacoesController">
+
+<AnchorPane id="AnchorPane" fx:id="paneDetalhesDoacoes" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="463.0" prefWidth="639.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.ifsp.ThanksGiven.controller.DetalhesDoacoesController">
   <children>
-    <Label layoutX="41.0" layoutY="46.0" prefHeight="72.0" prefWidth="461.0" style="-fx-background-color:#ffffff" text="Detalhes da Doação">
+    <Button fx:id="cancelarButton" layoutX="373.0" layoutY="417.0" mnemonicParsing="false" onMouseClicked="#clickCancelarDoacao" prefHeight="20.4521484375" prefWidth="111.0" style="-fx-background-color: #e74c3c; -fx-border-color: #e74c3c; -fx-border-radius: 5px;" text="Cancelar" textFill="WHITE">
+      <font>
+        <Font fx:id="contornoCancelar" name="Franklin Gothic Medium" size="12.0" />
+      </font>
+    </Button>
+    <Label layoutX="39.0" layoutY="7.0" prefHeight="72.0" prefWidth="461.0" style="-fx-background-color:#ffffff" text="Detalhes da Doação">
       <font>
         <Font name="Franklin Gothic Medium" size="36.0" />
       </font>
@@ -18,28 +24,27 @@
         <Color blue="0.945" green="0.745" red="0.345" fx:id="x2" />
       </textFill>
     </Label>
-    <Button fx:id="buttonSairConta" layoutX="471.0" layoutY="341.0" minWidth="28.0" mnemonicParsing="false" onMouseClicked="#clickSairConta" prefHeight="35.0" prefWidth="91.0" style="-fx-background-color: white; -fx-border-color: #58bef1;" text="Sair" textFill="#2b799d">
-      <font>
-        <Font name="Franklin Gothic Medium" size="12.0" fx:id="x1" />
-      </font>
-    </Button>
     <Label fx:id="labelVoltarPesquisarDoacoes" layoutX="14.0" layoutY="14.0" onMouseClicked="#clickVoltarPesquisarDoacoesPane" prefHeight="22.0" prefWidth="28.0" text="&lt;" textFill="$x2">
       <font>
         <Font name="Franklin Gothic Medium" size="25.0" />
       </font>
     </Label>
-    <ImageView fx:id="imageViewImagemProduto" blendMode="COLOR_DODGE" fitHeight="153.0" fitWidth="204.0" layoutX="337.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color:black&#10;&#10;" />
-    <Label layoutX="337.0" layoutY="291.0" text="TEM UMA IMAGE VIEW AQUI EM CIMA" />
-    <Label fx:id="labelNomeDoProduto" layoutX="41.0" layoutY="131.0" prefWidth="228.0" text="Nome do produto ">
+    <Label fx:id="labelNomeDoProduto" layoutX="42.0" layoutY="96.0" prefWidth="228.0" text="Nome do produto ">
       <font>
         <Font name="Franklin Gothic Medium" size="18.0" />
       </font>
     </Label>
     <Label layoutX="286.0" layoutY="193.0" text="" />
-    <Label fx:id="labelDescricaoDoProduto" layoutX="42.0" layoutY="177.0" text="Label">
+    <Label fx:id="labelDescricaoDoProduto" layoutX="42.0" layoutY="125.0" text="Descricao">
       <font>
         <Font name="Franklin Gothic Medium" size="16.0" />
       </font>
     </Label>
+    <Button fx:id="solicitarDoacaoButton" onMouseClicked="#clickSolicitarDoacao" font="$contornoCancelar" layoutX="500.0" layoutY="417.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" style="-fx-background-color: #58bef1; -fx-border-color: #58bef1; -fx-border-radius: 5px;" text="Solicitar Doação" textFill="WHITE" />
+    <ImageView fx:id="imageViewImagemProduto" cacheHint="SPEED" fitHeight="260.0" fitWidth="251.0" layoutX="359.0" layoutY="106.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Downloads/smoll.png" />
+         </image>
+      </ImageView>
   </children>
 </AnchorPane>
