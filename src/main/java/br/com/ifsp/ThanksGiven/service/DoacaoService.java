@@ -73,6 +73,14 @@ public class DoacaoService {
         return doacaoDTOS;
     }
 
+    public List<DoacaoDTO> buscaMinhasAquisicoes(Usuario usuario){
+        List<Doacao> allByDoador = doacaoRepository.findAllByReceptor(usuario);
+        List<DoacaoDTO> doacaoDTOS = new ArrayList<>();
+
+        allByDoador.forEach(x-> doacaoDTOS.add(new DoacaoDTO(x)));
+        return doacaoDTOS;
+    }
+
     public Doacao solicitarDoacao(Doacao doacao, Usuario usuario){
         doacao.setReceptor(usuario);
         return doacaoRepository.save(doacao);

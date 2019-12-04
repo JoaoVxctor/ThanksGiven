@@ -5,8 +5,13 @@ import static br.com.ifsp.ThanksGiven.ThanksGivenApplication.stageManager;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import br.com.ifsp.ThanksGiven.config.Session;
 import br.com.ifsp.ThanksGiven.models.DoacaoDTO;
+import br.com.ifsp.ThanksGiven.service.DoacaoService;
+import javafx.collections.FXCollections;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.cell.PropertyValueFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import br.com.ifsp.ThanksGiven.view.FxmlView;
@@ -20,6 +25,8 @@ import javafx.scene.layout.AnchorPane;
 @Controller
 public class AquisicoesController {
 
+    @Autowired
+    private DoacaoService doacaoService;
     @FXML
     private URL location;
 
@@ -41,9 +48,9 @@ public class AquisicoesController {
     @FXML
     private TableColumn<DoacaoDTO, String> doadorCol;
     @FXML
-    private TableColumn<DoacaoDTO, String> produtoCol;
+    private TableColumn<DoacaoDTO, String> itemCol;
     @FXML
-    private TableColumn<DoacaoDTO, Boolean> estadoCol;
+    private TableColumn<DoacaoDTO, Boolean> descricaoCol;
 
 
     @FXML
@@ -52,18 +59,22 @@ public class AquisicoesController {
 
     @FXML
     void clickSairConta(MouseEvent event) {
-    	stageManager.switchScene(FxmlView.LOGIN);
+        stageManager.switchScene(FxmlView.LOGIN);
     }
 
     @FXML
     void clickVoltarPesquisarDoacoesPane(MouseEvent event) {
-    	stageManager.switchScene(FxmlView.PESQUISARDOACOES);
+        stageManager.switchScene(FxmlView.PESQUISARDOACOES);
     }
 
     @FXML
     void initialize() {
 
+        descricaoCol.setCellValueFactory(new PropertyValueFactory<>("descricaoDoacao"));
+        itemCol.setCellValueFactory(new PropertyValueFactory<>("tituloDoacao"));
+        doadorCol.setCellValueFactory(new PropertyValueFactory<>("doadorNome"));
 
+        tableViewMinhasAquisicoes.setItems(FXCollections.observableArrayList(doacaoService.buscaMinhasAquisicoes(Session.getUsuario())));
     }
 
 }
